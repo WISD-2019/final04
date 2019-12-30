@@ -11,6 +11,14 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('page');
 });
+
+Route::group([],function (){
+    Route::post('reg','ProcessController@reg')->name('reg');  ;
+    Route::post('login','ProcessController@login')->name('login');
+    Route::get('logout','ProcessController@logout')->name('logout');
+});
+
