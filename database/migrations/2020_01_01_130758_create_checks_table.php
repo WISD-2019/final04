@@ -14,8 +14,15 @@ class CreateChecksTable extends Migration
     public function up()
     {
         Schema::create('checks', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id'); 
+            $table->string('user_id');
+            $table->string('name')->nullable();
+            $table->string('lack')->nullable();
+            $table->string('on_work')->nullable();
+            $table->string('off_work')->nullable();
+            $table->rememberToken();
             $table->timestamps();
+          
         });
     }
 
