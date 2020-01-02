@@ -30,4 +30,6 @@ Route::get('check', function () {
 });
 Route::post('create','CheckController@create')->name('create');
 
+Route::get('record','LeaveController@record');
+
 
