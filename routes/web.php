@@ -16,8 +16,11 @@
 Route::get('/', function () {
     return view('page');
 });
-// Route::get('home','HomeController@index')->name('home');
+Route::get('tt','ProcessController@login');
 
 Auth::routes();
 
+Route::get('leave', function () {
+    return view('leave');
+});
 
