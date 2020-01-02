@@ -8,6 +8,5 @@ class Leave extends Model
 {
     protected $fillable = [
         'user_id', 'type', 'reason', 'stauts', 'prove', 'apply_time', 'start_time', 'end_time',
-
     ];
 }
