@@ -26,4 +26,5 @@ Route::group([],function (){
 Route::get('check', function () {
     return view('check.check');
 });
+Route::post('create','CheckController@create')->name('create');
 
