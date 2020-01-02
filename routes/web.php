@@ -17,8 +17,13 @@ Route::get('/', function () {
 });
 
 Route::group([],function (){
-    Route::post('reg','ProcessController@reg')->name('reg');  ;
+    Route::post('reg','ProcessController@reg')->name('reg');  
     Route::post('login','ProcessController@login')->name('login');
     Route::get('logout','ProcessController@logout')->name('logout');
+});
+
+
+Route::get('check', function () {
+    return view('check.check');
 });
 
