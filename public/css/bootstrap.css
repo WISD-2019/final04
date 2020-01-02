@@ -3442,7 +3442,7 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   width: 1%;
-  margin-left: 4px;
+  /* margin-left: 4px; */
 }
 
 .input-group > .form-control + .form-control,
