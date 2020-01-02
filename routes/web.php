@@ -12,16 +12,13 @@
 */
 
 
+
 Route::get('/', function () {
     return view('page');
 });
+// Route::get('home','HomeController@index')->name('home');
 
-Route::group([],function (){
-    Route::post('reg','ProcessController@reg')->name('reg');  
-    Route::post('login','ProcessController@login')->name('login');
-    Route::get('logout','ProcessController@logout')->name('logout');
-});
-
+Auth::routes();
 
 Route::get('check', function () {
     return view('check.check');

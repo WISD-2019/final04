@@ -11,7 +11,6 @@
     @show
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slider_video.css')}}">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -22,7 +21,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <script type="text/javascript" src="{{asset('js/slider.js')}}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
@@ -37,12 +35,6 @@
     @include('layouts.nav')
 
     <div class="container">
-        <div id="right" class="slider-right"><!--灰色背景--></div>
-            <div id="user-bar" class="user-menu">
-                <a href="#">Page 1-1</a>
-                <a href="#"><span class="fa fa-usd" aria-hidden="true"></span> $$$</a>
-                <a href="#"><span  class="fa fa-sign-out"></span> Logout</a>
-        </div>
         <!-- Modal START -->
         @include('modal')
         <!-- Modal END -->

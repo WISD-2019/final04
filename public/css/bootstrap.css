@@ -58,9 +58,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #fff;
+  color: #000;
   text-align: left;
-  background-color: #000;
+  background-color: #e8e8e8;
 }
 
 [tabindex="-1"]:focus {
@@ -157,13 +157,13 @@ sup {
 }
 
 a {
-  color: #fff;
+  color: #7d7c7c;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #fff;
+  color: #7d7c7c;
   /* text-decoration: underline; */
 }
 
@@ -490,7 +490,7 @@ mark,
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #ddd;
+  border: 1px solid #000;
   border-radius: 4px;
   -webkit-transition: border .2s ease-in-out;
        -o-transition: border .2s ease-in-out;
@@ -498,7 +498,7 @@ mark,
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #fff;
+  color: #000;
 }
 .img-thumbnail {
   padding: 0.25rem;

@@ -23,8 +23,24 @@
         </ul>
         <ul class="nav navbar-nav ml-auto">
             @if (Auth::check())
-                <li><a id="user-icon" ><span class="fa fa-user-o fa-2x"></span></a></li>
-                <li><a href="#"><span  class="fa fa-sign-out fa-2x"></span> Logout</a><li></li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <span class="fa fa-user-o"></span>{{ Auth::user()->name }} 
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();"><span  class="fa fa-sign-out"></span>
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
             @else
                 <li><a href="#signup" data-toggle="modal" data-target="#myModal" ><span class="fa fa-sign-in" ></span> Login</a></li>
             @endif
