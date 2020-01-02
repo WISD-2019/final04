@@ -15,7 +15,7 @@
               <div id="showbox" name="showbox"></div>
               </body>
               <ul class="nav nav-tabs">
-                <li class="active"><a class="nav-link" data-toggle="tab" href="#home">上班</a></li>
+                <li class="active"><a class="nav-link active" data-toggle="tab" href="#home">上班</a></li>
                 <li><a class="nav-link" data-toggle="tab" href="#menu1">下班</a></li>
               </ul>           
           <div class="tab-content">
