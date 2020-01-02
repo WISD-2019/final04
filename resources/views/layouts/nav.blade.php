@@ -30,7 +30,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('record') }}">
-                            <span class="fa fa-sign-out"></span>紀錄查詢
+                            <span class="fa fa-th-list"></span>{{ __('紀錄查詢') }}
                         </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
