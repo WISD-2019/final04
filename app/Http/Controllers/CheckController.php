@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Check;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 class CheckController extends Controller
 {
     /**
@@ -22,9 +23,24 @@ class CheckController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
+        if(($request->input('on_work'))!==null){
+            $data=array(
+            "user_id"=>$request->input('on_work'),
+            "on_work"=> Carbon::now()
+            );
+        }
+        else if(($request->input('off_work'))!==null){
+            $data=array(
+            "user_id"=>$request->input('off_work'),
+            "off_work"=> Carbon::now()
+            );
+        }
+        
+        Check::insert($data);
+        return redirect('check');
     }
 
     /**
