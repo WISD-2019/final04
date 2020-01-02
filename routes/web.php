@@ -20,7 +20,14 @@ Route::get('tt','ProcessController@login');
 
 Auth::routes();
 
+
 Route::get('leave', function () {
     return view('leave');
 });
+
+Route::get('check', function () {
+    return view('check.check');
+});
+Route::post('create','CheckController@create')->name('create');
+
 
