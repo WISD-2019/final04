@@ -4,7 +4,8 @@
 
 @section('content')
 
-
+<form style="text-align:left" class="form-inline" action="{{route('insert')}}" method="POST">
+<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 <div class="col-lg-12">
     <div class="thumbnail">
         <div class="form-group mx-sm-3 mb-2">
@@ -76,5 +77,5 @@
         </div>
     </div>
 </div>
-
+</form>
 @stop
