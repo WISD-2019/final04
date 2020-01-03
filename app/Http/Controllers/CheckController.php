@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
+
 use App\check;
 use App\Leave;
 use Illuminate\Http\Request;
 
 
-=======
-use App\Check;
-
-use Illuminate\Http\Request;
-use Carbon\Carbon;
->>>>>>> c2cf393d8a8ac93a867722252110659de0f5a6d8
 class CheckController extends Controller
 {
     /**
@@ -23,7 +17,7 @@ class CheckController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
+
         return View('check');
     }
 
@@ -35,7 +29,7 @@ class CheckController extends Controller
         $countid=0;
         $countid = leave::SELECT('id')->count();
         return View('check',['leaveall' => $leaveall,'countid' => $countid]);
-=======
+
         //
     }
 
@@ -46,7 +40,7 @@ class CheckController extends Controller
      */
     public function create(Request $request)
     {
-        
+
         if(($request->input('on_work'))!==null){
             $data=array(
             "user_id"=>$request->input('on_work'),
@@ -65,10 +59,10 @@ class CheckController extends Controller
             Check::insert($data);
         echo "<script>alert('$data[user_id]'+'下班打卡成功'); location.href = 'check';</script>";
         }
-        
+
 
         // return redirect('check');
->>>>>>> c2cf393d8a8ac93a867722252110659de0f5a6d8
+
     }
 
     /**
@@ -85,17 +79,10 @@ class CheckController extends Controller
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
-     * @param  \App\check  $check
-     * @return \Illuminate\Http\Response
-     */
-    public function show(check $check)
-=======
-     * @param  \App\Check  $check
-     * @return \Illuminate\Http\Response
+
      */
     public function show(Check $check)
->>>>>>> c2cf393d8a8ac93a867722252110659de0f5a6d8
+
     {
         //
     }
@@ -103,17 +90,10 @@ class CheckController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
-     * @param  \App\check  $check
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(check $check)
-=======
-     * @param  \App\Check  $check
-     * @return \Illuminate\Http\Response
+
      */
     public function edit(Check $check)
->>>>>>> c2cf393d8a8ac93a867722252110659de0f5a6d8
+
     {
         //
     }
@@ -122,7 +102,7 @@ class CheckController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
+
      * @param  \App\check  $check
      * @return \Illuminate\Http\Response
      */
@@ -136,31 +116,21 @@ class CheckController extends Controller
         $updateRow->save();
 
 
-        return redirect('check')->with('selectid',$selectid);
-=======
-     * @param  \App\Check  $check
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Check $check)
-    {
-        //
->>>>>>> c2cf393d8a8ac93a867722252110659de0f5a6d8
+        return redirect('check')->with('selectid', $selectid);
     }
+
 
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
+
      * @param  \App\check  $check
      * @return \Illuminate\Http\Response
      */
-    public function destroy(check $check)
-=======
-     * @param  \App\Check  $check
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function destroy(Check $check)
->>>>>>> c2cf393d8a8ac93a867722252110659de0f5a6d8
+
     {
         //
     }
