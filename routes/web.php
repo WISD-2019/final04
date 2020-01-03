@@ -37,6 +37,7 @@ Route::group(['middleware'=>'auth'],function(){
 Route::get('user', function () {
     return view('user');
 });
+Route::post('insert','UserController@insert')->name('insert');
 
 
 
