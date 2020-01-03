@@ -42,7 +42,7 @@
         @show
 
     </div>
-
+    
     @section('script')
 
     @show
