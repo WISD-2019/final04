@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
             User::create([
                 'id'=>$number,
                 'user_id'=>'A'.$number,
+                'type'=>'0',
                 'username'=>'abc'.$number,
                 'password'=>'abcd'.$number,
                 'name'=>'name'.$number,
