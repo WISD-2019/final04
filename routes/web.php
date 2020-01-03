@@ -29,8 +29,15 @@ Route::get('check', function () {
     return view('check.check');
 });
 Route::post('create','CheckController@create')->name('create');
+
 Route::group(['middleware'=>'auth'],function(){
     Route::get('record','LeaveController@record')->name('record');
 });
+
+Route::get('user', function () {
+    return view('user');
+});
+
+
 
 
