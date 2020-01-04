@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('leave', function () {
     return view('leave');
 });
+Route::post('leave','LeaveController@submit')->name('submit');
 
 Route::get('check', function () {
     return view('check.check');
@@ -31,6 +32,7 @@ Route::get('check', function () {
 Route::post('create','CheckController@create')->name('create');
 Route::group(['middleware'=>'auth'],function(){
     Route::get('record','LeaveController@record')->name('record');
+
 });
 
 
