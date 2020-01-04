@@ -35,6 +35,7 @@
     @include('layouts.nav')
 
     <div class="container">
+    @include('layouts.flash_message')
         <!-- Modal START -->
         @include('modal')
         <!-- Modal END -->

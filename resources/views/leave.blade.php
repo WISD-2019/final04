@@ -3,12 +3,14 @@
 @section('title', '請假出差')
 
 @section('content')
+
 <div class="row">
     <div class="col-lg">
         <div class="thumbnail">
             <div class="caption">
               <H2>請假出差管理</H2>
-                <form action="/action_page.php">
+                <form method="POST" action="{{route('submit')}}">
+                @csrf
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" class="custom-control-input" id="customRadio" name="example" value="leave">
                         <label class="custom-control-label" for="customRadio">請假</label>
