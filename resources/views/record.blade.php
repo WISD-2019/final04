@@ -23,7 +23,7 @@
                         <td></td>
                         <td>{{$data->type}}</td>
                         <td>{{$data->reason}}</td>
-                        <td>{{$data->stauts}}</td>
+                        <td>{{$data->status}}</td>
                     </tr>
                     @endforeach
                     </tbody>
