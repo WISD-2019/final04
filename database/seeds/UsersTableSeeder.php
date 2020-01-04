@@ -12,14 +12,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
         foreach(range(1,20) as $number){
             User::create([
                 'id'=>$number,
-                'user_id'=>'A'.$number,
+                'user_id'=>$number,
                 'username'=>'abc'.$number,
                 'password'=>'abcd'.$number,
-                'name'=>'name'.$number,
+                'name'=>$number,
                 'email'=>$number.'@gmail.com',
                 'age'=>$number,
                 'sex'=>'男',
@@ -27,5 +27,7 @@ class UsersTableSeeder extends Seeder
                 'phone'=>'09123450'.$number,
                 ]);
             }
+
+
 }
 }
