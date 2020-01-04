@@ -20,6 +20,9 @@ Route::get('tt','ProcessController@login');
 
 Auth::routes();
 
+Route::get('Check','CheckController@loadpage');
+Route::post('Check_update', "CheckController@update");
+
 
 Route::get('leave', function () {
     return view('leave');

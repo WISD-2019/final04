@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Check;
 
+use App\check;
+use App\Leave;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+
+
 class CheckController extends Controller
 {
     /**
@@ -15,6 +17,19 @@ class CheckController extends Controller
      */
     public function index()
     {
+
+        return View('check');
+    }
+
+    public function loadpage(Request $request)
+    {
+        $leaveall=array();
+        $leaveall = leave::all();
+
+        $countid=0;
+        $countid = leave::SELECT('id')->count();
+        return View('check',['leaveall' => $leaveall,'countid' => $countid]);
+
         //
     }
 
@@ -25,7 +40,7 @@ class CheckController extends Controller
      */
     public function create(Request $request)
     {
-        
+
         if(($request->input('on_work'))!==null){
             $data=array(
             "user_id"=>$request->input('on_work'),
@@ -44,9 +59,10 @@ class CheckController extends Controller
             Check::insert($data);
         echo "<script>alert('$data[user_id]'+'下班打卡成功'); location.href = 'check';</script>";
         }
-        
+
 
         // return redirect('check');
+
     }
 
     /**
@@ -63,10 +79,10 @@ class CheckController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Check  $check
-     * @return \Illuminate\Http\Response
+
      */
     public function show(Check $check)
+
     {
         //
     }
@@ -74,10 +90,10 @@ class CheckController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Check  $check
-     * @return \Illuminate\Http\Response
+
      */
     public function edit(Check $check)
+
     {
         //
     }
@@ -86,21 +102,35 @@ class CheckController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Check  $check
+
+     * @param  \App\check  $check
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Check $check)
+    public function update(Request $request, check $check)
     {
-        //
+        $selectid = $request->input("update_id");
+        $updateRow = Leave::where('id', $request->input("update_id"))->first();
+        $updateRow->type = $request->input("update_type");
+        $updateRow->reason = $request->input("update_reason");
+        $updateRow->apply_time = $request->input("update_apply_time");
+        $updateRow->save();
+
+
+        return redirect('check')->with('selectid', $selectid);
     }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Check  $check
+
+     * @param  \App\check  $check
      * @return \Illuminate\Http\Response
      */
+
+
     public function destroy(Check $check)
+
     {
         //
     }
