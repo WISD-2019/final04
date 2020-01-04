@@ -10,7 +10,7 @@ $factory->define(Leave::class, function (Faker $faker) {
     return [
         'user_id'=>$faker->randomDigitNot(0),
         'type'=>$faker->randomElement($array = array ('事假','病假','喪假')),
-        'reason'=>$faker->paragraph,
+        'reason'=>$faker->sentence($nbWords = 6, $variableNbWords = true),
         'status'=>$faker->boolean($chanceOfGettingTrue = 50),
         'prove'=>$faker->realText($maxNbChars = 15),
         'apply_time'=>now(),
