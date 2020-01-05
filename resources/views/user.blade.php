@@ -78,4 +78,54 @@
     </div>
 </div>
 </form>
+
+<div class="col-lg-13">
+ 
+<div class="thumbnail">
+    <table class="table  table-dark table-striped" id= "table-id" style="text-align:center">
+        
+    <thead>
+        <tr>
+            <th>員工編號</th>
+            <th>類別</th>
+            <th>帳號</th>
+            <th>密碼</th>
+            <th>姓名</th>
+            <th>emil</th>
+            <th>年齡</th>
+            <th>性別</th>
+            <th>職業</th>
+            <th>電話</th>
+            <th>編輯</th> 
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        
+        @foreach ($user as $users)
+
+        <tr>
+            <td >{{$users->user_id}}</td>
+            <td>{{$users->type}}</td>
+            <td>{{$users->username}}</td>
+            <td>{{$users->password}}</td>
+            <td>{{$users->name}}</td>
+            <td>{{$users->email}}</td>
+            <td>{{$users->age}}</td>
+            <td>{{$users->sex}}</td>
+            <td>{{$users->work}}</td>
+            <td>{{$users->phone}}</td>
+            <td>
+            <form action="{{route('destroy')}}" method="POST">     
+            <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+
+            <button type="submit" class="btn btn-primary" value="{{$users->id}}" name='delete'>刪除</button>
+            <button type="button" class="btnSelect  btn btn-danger " value="{{$users->id}}" name='update' data-toggle="modal" data-target="#exampleModalLong1">修改</button></td>
+            </tr>
+            </form>
+    
+    @endforeach
+        </tbody>
+    </table>
+</div>
+</div>
 @stop
