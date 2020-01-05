@@ -29,13 +29,30 @@ Route::get('leave', function () {
 });
 Route::post('leave','LeaveController@submit')->name('submit');
 
-Route::get('check', function () {
-    return view('check.check');
+Route::get('on_work', function () {
+    return view('attendance');
 });
-Route::post('create','CheckController@create')->name('create');
+Route::post('work','InsertController@work')->name('work');
+
 Route::group(['middleware'=>'auth'],function(){
     Route::get('record','LeaveController@record')->name('record');
 
 });
+
+
+
+Route::group(['prefix'=>'user'],function (){
+    Route::get('/','UserController@index');
+    Route::post('/insert','UserController@insert')->name('insert'); 
+    Route::post('/delete','UsersController@delete')->name('delete');
+    // Route::post('/update','InsertController@update')->name('update');
+
+});
+// Route::get('user', function () {
+//     return view('user');
+// });
+// Route::post('insert','UserController@insert')->name('insert');
+
+
 
 

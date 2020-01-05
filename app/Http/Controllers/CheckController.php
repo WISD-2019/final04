@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 
+
 class CheckController extends Controller
 {
     /**
@@ -37,28 +38,6 @@ class CheckController extends Controller
      */
     public function create(Request $request)
     {
-
-        if(($request->input('on_work'))!==null){
-            $data=array(
-            "user_id"=>$request->input('on_work'),
-            "on_work"=> Carbon::now()
-            );
-            Check::insert($data);
-        //   dd($data);
-        echo "<script>alert('$data[user_id]'+'上班打卡成功'); location.href = 'check';</script>";
-
-        }
-        else if(($request->input('off_work'))!==null){
-            $data=array(
-            "user_id"=>$request->input('off_work'),
-            "off_work"=> Carbon::now()
-            );
-            Check::insert($data);
-        echo "<script>alert('$data[user_id]'+'下班打卡成功'); location.href = 'check';</script>";
-        }
-
-
-        // return redirect('check');
 
     }
 
@@ -129,4 +108,5 @@ class CheckController extends Controller
     {
         //
     }
+    
 }
