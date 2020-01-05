@@ -41,11 +41,12 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 
-
+//人員新增刪除修改
 Route::group(['prefix'=>'user'],function (){
     Route::get('/','InsertController@index');
-    Route::post('/insert','InsertController@insert')->name('insert'); 
-    Route::post('/destroy','InsertController@destroy')->name('destroy');
+    Route::post('/insert','InsertController@insert')->name('insert');
+    // Route::delete('{users}', 'InsertController@destroy');
+    Route::post('/delete','InsertController@delete')->name('delete');
     // Route::post('/update','InsertController@update')->name('update');
 
 });

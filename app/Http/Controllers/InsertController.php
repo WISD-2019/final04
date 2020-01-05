@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Works;
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -35,7 +37,7 @@ class InsertController extends Controller
             'user_id'=>$request->input('user_id'),
             'type'=>$request->input('type'),
             'username'=>$request->input('username'),
-            'password'=>$request->input('password'),
+            'password'=>Hash::make($request->input('password')),
             'name'=>$request->input('name'),
             'email'=>$request->input('email'),
             "sex"=>$request->input('sex'),
@@ -100,9 +102,10 @@ class InsertController extends Controller
      * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Works $works)
+    public function delete (Request $request)
     {
-        //
+        User::where('id',$request->input('delete'))->delete();
+        return redirect('user');
     }
     public function work(Request $request)
     {
