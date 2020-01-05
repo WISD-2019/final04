@@ -16,7 +16,6 @@
 Route::get('/', function () {
     return view('page');
 });
-Route::get('tt','ProcessController@login');
 
 Auth::routes();
 
