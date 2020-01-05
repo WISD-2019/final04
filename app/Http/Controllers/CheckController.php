@@ -26,8 +26,12 @@ class CheckController extends Controller
     public function load_page(Request $request)
     {
         $leave = Leave::paginate(5);
-        $count_id=0;
+        $user = User::SELECT('user_id','name');
+
+        $leave_id = Leave::SELECT('user_id');
+
         $count_id = Leave::SELECT('id')->count();
+
         return View('check',['leave' => $leave,'count_id' => $count_id]);
     }
 
@@ -82,15 +86,16 @@ class CheckController extends Controller
      * @param  \App\check  $check
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, check $check)
+    public function update(Request $request)
     {
-        $selectid = $request->input("update_id");
-        $updateRow = Leave::where('id', $request->input("update_id"))->first();
-        $updateRow->status = $request->input("update_status");
+        $selectid = $request->input("id");
+        $updateRow = Leave::where('id', $request->input("id"))->first();
+        if(!$updateRow){
+            return redirect('Check')->with('selectid', $selectid);
+        }
+        $updateRow->status = $request->input('update_status');
         $updateRow->save();
-
-
-        return redirect('check')->with('selectid', $selectid);
+        return redirect('Check')->with('selectid', $selectid);
     }
 
 
@@ -108,5 +113,5 @@ class CheckController extends Controller
     {
         //
     }
-    
+
 }

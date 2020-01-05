@@ -33,6 +33,7 @@
             <th  scope="col">請假類型</th>
             <th  scope="col">事由</th>
             <th  scope="col">申請時間</th>
+            <th  scope="col">審核狀態</th>
 
         </tr>
         </thead>
@@ -49,18 +50,29 @@
                     <td style="display:none">{{$leaves->start_time}} </td>
                     <td style="display:none">{{$leaves->end_time}} </td>
                     <td style="display:none">{{$leaves->prove}} </td>
-                    <td>
+                    <td style="display:none">{{$leaves->status}} </td>
+                    @if($leaves->status == "1")
+                        <td>已審核</td>
+                        <td>
+                        <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                            詳細資料
+                        </button>
+                        </td>
+                    @else
+                        <td>未審核</td>
+                        <td>
                             <!--彈出修改視窗 Button trigger modal -->
-                    <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
-                        審核
-                    </button>
-                    </td>
+                            <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                                審核
+                            </button>
+                        </td>
+                    @endif
+
 
                 </tr>
             @endforeach
         @endif
     </table>
-
     {{ $leave->links() }}
     </div>
 
@@ -69,9 +81,6 @@
 
     <!--/////////////////////////////////////////// 顯示選取資料 -->
     <div id="output"></div>
-
-
-
     <!--'修改'彈出視窗的內容 Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -83,7 +92,7 @@
                     </button>
                 </div>
 
-                <form action="{{ url("/check_update") }}" method="POST">
+                <form action="{{ url("/Check_update") }}" method="POST">
                     {{ csrf_field() }}
                     <p class="modal-body">
                         <label>編號<input type="text" class="form-control" name="id" id="id" readonly="readonly" ></label>
@@ -97,15 +106,25 @@
                         <input type="text" class="form-control" name="reason" id="reason" readonly="readonly">
                         <label>證明</label>
                         <input type="text" class="form-control" name="prove" id="prove" readonly="readonly">
-                        <input type="checkbox" name="update_status" id="update_status" >核准<br>
+                        <input type="text" class="form-control" name="status" id="status" readonly="readonly">
+                        @if($leaves->status==0)
+                        <input type="checkbox" name="update_status" value="1" >核准<br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                            <button type="submit" class="btn btn-primary">確定修改</button>
+                            <button type="submit" class="btn btn-primary">確定</button>
                         </div>
+                        @else
+                            已審核
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+                        </div>
+                        @endif
+
                 </form>
             </div>
         </div>
     </div>
+
 
     <!-- 給'修改'彈出視窗資料的java script -->
     <script>
@@ -122,6 +141,7 @@
                 var col5=currentRow.find("td:eq(5)").html();
                 var col6=currentRow.find("td:eq(6)").html();
                 var col7=currentRow.find("td:eq(7)").html();
+                var col8=currentRow.find("td:eq(8)").html();
 
                 $('#id').val(col0.trim());
                 $('#user_id').val(col1.trim());
@@ -131,6 +151,8 @@
                 $('#start_time').val(col5.trim());
                 $('#end_time').val(col6.trim());
                 $('#prove').val(col7.trim());
+                $('#status').val(col8.trim());
+
             });
         });
     </script>

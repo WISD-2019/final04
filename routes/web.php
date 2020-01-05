@@ -24,6 +24,7 @@ Route::get('Check','CheckController@load_page');
 Route::post('Check_update', "CheckController@update");
 
 
+
 Route::get('leave', function () {
     return view('leave');
 });
@@ -43,7 +44,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::group(['prefix'=>'user'],function (){
     Route::get('/','UserController@index');
-    Route::post('/insert','UserController@insert')->name('insert'); 
+    Route::post('/insert','UserController@insert')->name('insert');
     Route::post('/delete','UsersController@delete')->name('delete');
     // Route::post('/update','InsertController@update')->name('update');
 
