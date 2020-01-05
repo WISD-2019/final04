@@ -131,8 +131,10 @@
                             <label for="sex" class="col-md-4 col-form-label text-md-right">{{ __('Sex') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sex" type="text" class="form-control @error('sex') is-invalid @enderror" name="sex" value="{{ old('sex') }}" required autocomplete="sex">
-
+                                <select id="sex" name="sex" class="form-control @error('sex') is-invalid @enderror" type="text">
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                <select>
                                 @error('sex')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -145,7 +147,7 @@
                             <label for="work" class="col-md-4 col-form-label text-md-right">{{ __('Work') }}</label>
 
                             <div class="col-md-6">
-                                <input id="wordk" type="text" class="form-control @error('work') is-invalid @enderror" name="work" value="{{ old('work') }}" required autocomplete="work">
+                                <input id="work" type="text" class="form-control @error('work') is-invalid @enderror" name="work" value="{{ old('work') }}" required autocomplete="work">
 
                                 @error('work')
                                     <span class="invalid-feedback" role="alert">

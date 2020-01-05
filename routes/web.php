@@ -20,10 +20,14 @@ Route::get('tt','ProcessController@login');
 
 Auth::routes();
 
+Route::get('Check','CheckController@loadpage');
+Route::post('Check_update', "CheckController@update");
+
 
 Route::get('leave', function () {
     return view('leave');
 });
+Route::post('leave','LeaveController@submit')->name('submit');
 
 Route::get('on_work', function () {
     return view('attendance');
@@ -32,6 +36,7 @@ Route::post('work','InsertController@work')->name('work');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('record','LeaveController@record')->name('record');
+
 });
 
 

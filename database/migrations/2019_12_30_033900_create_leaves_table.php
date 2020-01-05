@@ -18,7 +18,7 @@ class CreateLeavesTable extends Migration
             $table->integer('user_id');
             $table->string('type');
             $table->string('reason');
-            $table->integer('stauts');
+            $table->integer('status');
             $table->string('prove');
             $table->timestamp('apply_time')->nullable();
             $table->timestamp('start_time')->nullable();

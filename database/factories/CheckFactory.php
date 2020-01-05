@@ -2,10 +2,12 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Check;
+
+use App\check;
 use Faker\Generator as Faker;
 
-$factory->define(Check::class, function (Faker $faker) {
+$factory->define(check::class, function (Faker $faker) {
+
     return [
         //
     ];
