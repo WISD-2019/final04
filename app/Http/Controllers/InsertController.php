@@ -92,7 +92,7 @@ class InsertController extends Controller
             "user_id"=>$request->input('on_work'),
             "on_work"=> Carbon::now()
             );
-            Check::insert($data);
+            Works::insert($data);
         //   dd($data);
         echo "<script>alert('員工編號：'+'$data[user_id]\\n'+'　上班打卡成功'); location.href = 'on_work';</script>";
 
@@ -102,7 +102,7 @@ class InsertController extends Controller
             "user_id"=>$request->input('off_work'),
             "off_work"=> Carbon::now()
             );
-            Check::insert($data);
+            Works::insert($data);
         echo "<script>alert('員工編號：'+'$data[user_id]\\d'+'　下班打卡成功'); location.href = 'on_work';</script>";
         }
         
