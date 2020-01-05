@@ -128,4 +128,117 @@
     </table>
 </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">修改</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body">
+      
+          <form class="form-horizontal" action="{{route('update')}}" method="post">
+          <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+          <fieldset>
+						<!-- Sign Up Form -->
+						<!-- Text input-->
+            <div class="control-group">
+							<label class="control-label" >員工編號：
+							<div class="controls">
+							<input id="user_id1" name="user_id1" class="form-control" type="text"  class="input-large" required="" readonly="readonly">
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label">姓名：
+							<div class="controls">
+							<input id="name1" name="name1" class="form-control" type="text"  class="input-large" required="">
+							</div>
+						</div>
+
+                        <div class="control-group">
+							<label class="control-label">email：
+							<div class="controls">
+							<input id="email1" name="email1" class="form-control" type="text"  class="input-large" required="">
+							</div>
+						</div>
+					  
+						<!-- Text input-->
+						<div class="control-group">
+							<label class="control-label">年齡： 
+							<div class="controls">
+								<input id="age1" name="age1" class="form-control" type="text"  class="input-large" required="">
+							</div>
+						</div>
+
+						<!-- Text input-->
+						<div class="control-group">
+							<label class="control-label" >性別： 
+								<input id="sex1" name="sex1" class="form-control" type="text"  class="input-large" required="">
+						</div>
+						<!-- Text input-->
+						<div class="control-group">
+							<label class="control-label">職業：
+								<input  id="work1" name="work1" class="form-control" type="text" class="input-large" required="">
+            </div>
+            <!-- Text input-->
+            <div class="control-group">
+							<label class="control-label" >電話： 
+								<input  id="phone1" name="phone1" class="form-control" type="text" class="input-large" required="">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" >Save changes</button>
+            </div>
+          </form>
+          </div>
+    </div>
+  </div>
+</div>
+<script>
+ $(document).ready(function(){
+   $("#myInput").on("keyup", function() {
+     var value = $(this).val().toLowerCase();
+     $("#myTable tr").filter(function() {
+       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+     });
+   });
+ });
+ </script>
+ 
+ <script>
+ $(document).ready(function(){
+
+// code to read selected table row cell data (values).
+$("#myTable").on('click','.btnSelect',function(){
+     // get the current row
+     var currentRow=$(this).closest("tr"); 
+     
+     var col0=currentRow.find("td:eq(0)").html();
+     var col1=currentRow.find("td:eq(1)").html(); // get current row 2nd table cell TD value
+     var col2=currentRow.find("td:eq(2)").html(); // get current row 3rd table cell  TD value
+     var col3=currentRow.find("td:eq(3)").html();
+     var col4=currentRow.find("td:eq(4)").html();
+     var col5=currentRow.find("td:eq(5)").html();
+     var col6=currentRow.find("td:eq(6)").html();
+
+   
+     $('#user_id1').val(col0);
+     $('#name1').val(col1);
+     $('#email1').val(col2);
+     $('#age1').val(col3);
+     $('#sex1').val(col4);
+     $('#work1').val(col5);
+     $('#phone1').val(col6);
+
+
+  });
+});
+</script>
 @stop

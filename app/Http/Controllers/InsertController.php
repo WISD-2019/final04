@@ -91,9 +91,20 @@ class InsertController extends Controller
      * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
+    //修改人員
     public function update(Request $request, Works $works)
     {
-        //
+    $user_id = $request->input('user_id1');  
+    $name = $request->input('name1');
+    $email = $request->input('email1');
+    $age = $request->input('age1');
+    $sex= $request->input('sex1');
+    $work= $request->input('work1');
+    $phone = $request->input('phone1');
+   
+    User::where('user_id',$request->input('user_id1'))->update(['user_id'=>$user_id,'name' =>$name,'email' => $email,'age' => $age,'sex' => $sex,'work' => $work,'phone' => $phone]);
+    
+    return redirect('user');
     }
 
     /**
@@ -102,6 +113,7 @@ class InsertController extends Controller
      * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
+    //刪除人員
     public function delete (Request $request)
     {
         User::where('id',$request->input('delete'))->delete();

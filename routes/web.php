@@ -47,7 +47,7 @@ Route::group(['prefix'=>'user'],function (){
     Route::post('/insert','InsertController@insert')->name('insert');
     // Route::delete('{users}', 'InsertController@destroy');
     Route::post('/delete','InsertController@delete')->name('delete');
-    // Route::post('/update','InsertController@update')->name('update');
+    Route::post('/update','InsertController@update')->name('update');
 
 });
 // Route::get('user', function () {
