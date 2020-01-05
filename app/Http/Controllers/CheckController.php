@@ -91,11 +91,11 @@ class CheckController extends Controller
         $selectid = $request->input("id");
         $updateRow = Leave::where('id', $request->input("id"))->first();
         if(!$updateRow){
-            return redirect('Check')->with('selectid', $selectid);
+            return redirect('check')->with('selectid', $selectid);
         }
         $updateRow->status = $request->input('update_status');
         $updateRow->save();
-        return redirect('Check')->with('selectid', $selectid);
+        return redirect('check')->with('selectid', $selectid);
     }
 
 
