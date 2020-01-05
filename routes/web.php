@@ -20,7 +20,7 @@ Route::get('tt','ProcessController@login');
 
 Auth::routes();
 
-Route::get('Check','CheckController@loadpage');
+Route::get('Check','CheckController@load_page');
 Route::post('Check_update', "CheckController@update");
 
 
