@@ -9,7 +9,7 @@
         <div class="thumbnail">
             <div class="caption">
               <H2>請假出差管理</H2>
-                <form method="POST" action="{{route('submit')}}">
+                <form method="POST" action="{{route('submit')}}" enctype="multipart/form-data">
                 @csrf
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" class="custom-control-input" id="customRadio" name="example" value="leave">
@@ -78,23 +78,26 @@ $(document).ready(function(){
                     str+=("</div>");
 
                     str+=("<div class=\"form-group row\" id=\"reason\" >");
-                    str+=("<label class=\"col-sm-2 col-form-label\" >"+"請假理由"+"</label>");
-                    str+=("<div class=\"col-sm-10\" >");
-                    str+=("<input name=\"reason\" class=\"form-control\" type=\"text\" value=\"\" required=\"\">");
-                    str+=("</div>");
+                        str+=("<label class=\"col-sm-2 col-form-label\" >"+"請假事由"+"</label>");
+                        str+=("<div class=\"col-sm-10\" >");
+                        str+=("<input name=\"reason\" class=\"form-control\" type=\"text\" value=\"\" required=\"\">");
+                        str+=("</div>");
                     str+=("</div>");
 
                     str+=("<div class=\"form-group row\" id=\"prove\" >");
                     str+=("<label class=\"col-sm-2 col-form-label\" >"+"證明"+"</label>");
-                    str+=("<div class=\"col-sm-10\" >");
-                    str+=("<input name=\"prove\" class=\"form-control\" type=\"text\" value=\"\" required=\"\">");
+                    str+=("<div class=\"col-sm-10 custom-file\">");
+                        str+=("<input type=\"file\" class=\"custom-file-input\" id=\"customFile\" name=\"filename\" required>");
+                        str+=("<label class=\"custom-file-label\" for=\"customFile\">Choose file</label>");
                     str+=("</div>");
                     str+=("</div>");
+
 
                     str+=("<button type=\"submit\" class=\"btn btn-primary\">提交申請</button>");
 
                     $( ".add" ).append(str);
                 break;
+
                 case "travel":
                     $( ".add" ).empty();
                     var str='';
@@ -168,5 +171,11 @@ $(document).ready(function(){
         });
     });
 
+</script>
+<script>
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
 </script>
 @stop
