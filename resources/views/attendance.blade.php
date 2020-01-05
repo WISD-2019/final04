@@ -8,7 +8,7 @@
   <div class="col-lg-6">
       <div class="thumbnail">
           <div class="caption">
-          <form action="{{route('create')}}" method="post" >
+          <form action="{{route('work')}}" method="post" >
           {{ csrf_field() }}
             <H2>現在時間</H2>
             <body onload="ShowTime()">

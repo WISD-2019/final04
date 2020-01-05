@@ -6,7 +6,7 @@ use App\Check;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-class CheckController extends Controller
+class InsertController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,27 +26,7 @@ class CheckController extends Controller
     public function create(Request $request)
     {
         
-        if(($request->input('on_work'))!==null){
-            $data=array(
-            "user_id"=>$request->input('on_work'),
-            "on_work"=> Carbon::now()
-            );
-            Check::insert($data);
-        //   dd($data);
-        echo "<script>alert('$data[user_id]'+'上班打卡成功'); location.href = 'check';</script>";
-
-        }
-        else if(($request->input('off_work'))!==null){
-            $data=array(
-            "user_id"=>$request->input('off_work'),
-            "off_work"=> Carbon::now()
-            );
-            Check::insert($data);
-        echo "<script>alert('$data[user_id]'+'下班打卡成功'); location.href = 'check';</script>";
-        }
         
-
-        // return redirect('check');
     }
 
     /**
@@ -103,5 +83,31 @@ class CheckController extends Controller
     public function destroy(Check $check)
     {
         //
+    }
+    public function work(Request $request)
+    {
+        //
+        
+        if(($request->input('on_work'))!==null){
+            $data=array(
+            "user_id"=>$request->input('on_work'),
+            "on_work"=> Carbon::now()
+            );
+            Check::insert($data);
+        //   dd($data);
+        echo "<script>alert('員工編號：'+'$data[user_id]\\n'+'　上班打卡成功'); location.href = 'on_work';</script>";
+
+        }
+        else if(($request->input('off_work'))!==null){
+            $data=array(
+            "user_id"=>$request->input('off_work'),
+            "off_work"=> Carbon::now()
+            );
+            Check::insert($data);
+        echo "<script>alert('員工編號：'+'$data[user_id]\\d'+'　下班打卡成功'); location.href = 'on_work';</script>";
+        }
+        
+
+        // return redirect('check');
     }
 }
