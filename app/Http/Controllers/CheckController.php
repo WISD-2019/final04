@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use App\check;
 use App\Leave;
+use App\User;
+
 use Illuminate\Http\Request;
 
 
@@ -22,16 +23,12 @@ class CheckController extends Controller
         return View('check');
     }
 
-    public function loadpage(Request $request)
+    public function load_page(Request $request)
     {
-        $leaveall=array();
-        $leaveall = leave::all();
-
-        $countid=0;
-        $countid = leave::SELECT('id')->count();
-        return View('check',['leaveall' => $leaveall,'countid' => $countid]);
-
-        //
+        $leave = Leave::paginate(5);
+        $count_id=0;
+        $count_id = Leave::SELECT('id')->count();
+        return View('check',['leave' => $leave,'count_id' => $count_id]);
     }
 
     /**
@@ -89,9 +86,7 @@ class CheckController extends Controller
     {
         $selectid = $request->input("update_id");
         $updateRow = Leave::where('id', $request->input("update_id"))->first();
-        $updateRow->type = $request->input("update_type");
-        $updateRow->reason = $request->input("update_reason");
-        $updateRow->apply_time = $request->input("update_apply_time");
+        $updateRow->status = $request->input("update_status");
         $updateRow->save();
 
 

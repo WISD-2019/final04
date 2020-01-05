@@ -24,38 +24,48 @@
     </form>
 
 
-
+<h>請假</h>
     <table class="table table-bordered" style="color:#000000" >
         <thead>
         <tr>
             <th  scope="col">編號</th>
+            <th  scope="col">申請人姓名</th>
             <th  scope="col">請假類型</th>
             <th  scope="col">事由</th>
             <th  scope="col">申請時間</th>
+
         </tr>
         </thead>
+        <div class="panel-body">
         <tbody id="Mytable2">
-        @if ($countid > 0)
-            @foreach ($leaveall as $leaveall)
+        @if ($count_id > 0)
+            @foreach ($leave as $leaves)
                 <tr>
-                    <td scope="row">{{$leaveall->id}} </td>
-                    <td>{{$leaveall->type}} </td>
-                    <td>{{$leaveall->reason}} </td>
-                    <td>{{$leaveall->apply_time}} </td>
+                    <td scope="row">{{$leaves->id}} </td>
+                    <td>{{$leaves->user_id}} </td>
+                    <td>{{$leaves->type}} </td>
+                    <td>{{$leaves->reason}} </td>
+                    <td>{{$leaves->apply_time}} </td>
+                    <td style="display:none">{{$leaves->start_time}} </td>
+                    <td style="display:none">{{$leaves->end_time}} </td>
+                    <td style="display:none">{{$leaves->prove}} </td>
                     <td>
                             <!--彈出修改視窗 Button trigger modal -->
                     <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
-                        修改
+                        審核
                     </button>
                     </td>
 
                 </tr>
             @endforeach
         @endif
-
-        </tbody>
-
     </table>
+
+    {{ $leave->links() }}
+    </div>
+
+
+
 
     <!--/////////////////////////////////////////// 顯示選取資料 -->
     <div id="output"></div>
@@ -75,20 +85,23 @@
 
                 <form action="{{ url("/check_update") }}" method="POST">
                     {{ csrf_field() }}
-                    <div class="modal-body">
-                        <label>編號</label>
-                        <input type="text" class="form-control" name="update_id" id="update_id" readonly="readonly" >
-                        <label >姓名</label>
-                        <input type="text" class="form-control" name="update_type" id="update_type" readonly="readonly">
-                        <label >電話</label>
-                        <input type="text" class="form-control" name="update_reason" id="update_reason" readonly="readonly">
-                        <label >性別</label>
-                        <input type="text" class="form-control" name="update_apply_time" id="update_apply_time" readonly="readonly">
+                    <p class="modal-body">
+                        <label>編號<input type="text" class="form-control" name="id" id="id" readonly="readonly" ></label>
+                        <label>員工號<input type="text" class="form-control" name="user_id" id="user_id" readonly="readonly" ></label>
+                        <label>假別<input type="text" class="form-control" name="type" id="type" readonly="readonly"></label>
+                        <label>申請時間<input type="text" class="form-control" name="apply_time" id="apply_time" readonly="readonly"></label>
+                        <label>開始時間<input type="text" class="form-control" name="start_time" id="start_time" readonly="readonly"></label>
+                        <label>結束時間<input type="text" class="form-control" name="end_time" id="end_time" readonly="readonly"></label>
+                        <br>
+                        <label>事由</label>
+                        <input type="text" class="form-control" name="reason" id="reason" readonly="readonly">
+                        <label>證明</label>
+                        <input type="text" class="form-control" name="prove" id="prove" readonly="readonly">
+                        <input type="checkbox" name="update_status" id="update_status" >核准<br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                             <button type="submit" class="btn btn-primary">確定修改</button>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>
@@ -105,14 +118,24 @@
                 var col1=currentRow.find("td:eq(1)").html(); // get current row 2nd table cell TD value
                 var col2=currentRow.find("td:eq(2)").html(); // get current row 3rd table cell  TD value
                 var col3=currentRow.find("td:eq(3)").html();
+                var col4=currentRow.find("td:eq(4)").html();
+                var col5=currentRow.find("td:eq(5)").html();
+                var col6=currentRow.find("td:eq(6)").html();
+                var col7=currentRow.find("td:eq(7)").html();
 
-                $('#update_id').val(col0.trim());
-                $('#update_type').val(col1.trim());
-                $('#update_reason').val(col2.trim());
-                $('#update_apply_time').val(col3.trim());
+                $('#id').val(col0.trim());
+                $('#user_id').val(col1.trim());
+                $('#type').val(col2.trim());
+                $('#reason').val(col3.trim());
+                $('#apply_time').val(col4.trim());
+                $('#start_time').val(col5.trim());
+                $('#end_time').val(col6.trim());
+                $('#prove').val(col7.trim());
             });
         });
     </script>
+
+
 
 
 @endsection
