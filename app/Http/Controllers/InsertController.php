@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Check;
-
+use App\Works;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+
 class InsertController extends Controller
 {
     /**
@@ -23,10 +23,9 @@ class InsertController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        
-        
+        //
     }
 
     /**
@@ -43,10 +42,10 @@ class InsertController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Check  $check
+     * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
-    public function show(Check $check)
+    public function show(Works $works)
     {
         //
     }
@@ -54,10 +53,10 @@ class InsertController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Check  $check
+     * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
-    public function edit(Check $check)
+    public function edit(Works $works)
     {
         //
     }
@@ -66,10 +65,10 @@ class InsertController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Check  $check
+     * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Check $check)
+    public function update(Request $request, Works $works)
     {
         //
     }
@@ -77,10 +76,10 @@ class InsertController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Check  $check
+     * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Check $check)
+    public function destroy(Works $works)
     {
         //
     }

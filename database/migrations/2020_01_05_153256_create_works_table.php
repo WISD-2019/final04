@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChecksTable extends Migration
+class CreateWorksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateChecksTable extends Migration
      */
     public function up()
     {
-        Schema::create('checks', function (Blueprint $table) {
+        Schema::create('works', function (Blueprint $table) {
             $table->bigIncrements('id'); 
             $table->string('user_id');
             $table->string('name')->nullable();
@@ -22,7 +22,6 @@ class CreateChecksTable extends Migration
             $table->string('off_work')->nullable();
             $table->rememberToken();
             $table->timestamps();
-          
         });
     }
 
@@ -33,6 +32,6 @@ class CreateChecksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checks');
+        Schema::dropIfExists('works');
     }
 }
