@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Works;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -13,9 +16,12 @@ class InsertController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //人員介面
     public function index()
     {
-        //
+            $user=User::all();
+            return View('user',['user'=>$user]);
+        
     }
 
     /**
@@ -23,11 +29,28 @@ class InsertController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
+    //新增人員
+    public function insert(Request $request){
+       
+        $data=array(
+            'user_id'=>$request->input('user_id'),
+            'type'=>$request->input('type'),
+            'username'=>$request->input('username'),
+            'password'=>Hash::make($request->input('password')),
+            'name'=>$request->input('name'),
+            'email'=>$request->input('email'),
+            "sex"=>$request->input('sex'),
+            "age"=>$request->input('age'),
+            "work"=>$request->input('work'),
+            "phone"=>$request->input('phone')
+        );
+        
+        User::insert($data);
+
+        return redirect('user');
+       
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -68,9 +91,20 @@ class InsertController extends Controller
      * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
+    //修改人員
     public function update(Request $request, Works $works)
     {
-        //
+    $user_id = $request->input('user_id1');  
+    $name = $request->input('name1');
+    $email = $request->input('email1');
+    $age = $request->input('age1');
+    $sex= $request->input('sex1');
+    $work= $request->input('work1');
+    $phone = $request->input('phone1');
+   
+    User::where('user_id',$request->input('user_id1'))->update(['user_id'=>$user_id,'name' =>$name,'email' => $email,'age' => $age,'sex' => $sex,'work' => $work,'phone' => $phone]);
+    
+    return redirect('user');
     }
 
     /**
@@ -79,9 +113,11 @@ class InsertController extends Controller
      * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Works $works)
+    //刪除人員
+    public function delete (Request $request)
     {
-        //
+        User::where('id',$request->input('delete'))->delete();
+        return redirect('user');
     }
     public function work(Request $request)
     {

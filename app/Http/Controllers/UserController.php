@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function index(){
+        $user=User::all();
+        return View('user',['user'=>$user]);
+    
+
+    }
     public function insert(Request $request){
        
         $data=array(
@@ -24,7 +30,14 @@ class UserController extends Controller
         );
         
         User::insert($data);
-        return redirect('user');
+
+        // return redirect('user');
        
+    }
+    public function delete(){
+        $user=User::all();
+        return View('user',['user'=>$user]);
+    
+
     }
 }
