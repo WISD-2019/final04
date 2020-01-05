@@ -9,7 +9,7 @@ class LeaveController extends Controller
 {
     //
     public function record(){
-        $query=Leave::where('user_id',Auth::user()->id)->get();
+        $query=Leave::where('user_id',Auth::user()->id)->paginate(5);
         return View('record',['query'=>$query]);
     }
 

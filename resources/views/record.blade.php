@@ -29,6 +29,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $query->links() }}
         </div>
     </div>
 </div>
