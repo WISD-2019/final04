@@ -31,7 +31,8 @@ class LeaveController extends Controller
                     'end_time'=>$request->end_time,
                     'reason' =>$request->reason,
                     'status'=>0,
-                    'prove' =>$filename
+                    'prove' =>$filename,
+                    'apply_time'=>date('Y-m-d H:i:s')
                 ]);
                 return back()->with('success', '申請成功');
             }
