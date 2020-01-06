@@ -29,7 +29,7 @@ class CheckController extends Controller
         $user = User::SELECT('user_id','name');
 
         $leave_id = Leave::SELECT('user_id');
-
+dd($leave_id);
         $count_id = Leave::SELECT('id')->count();
 
         return View('check',['leave' => $leave,'count_id' => $count_id]);

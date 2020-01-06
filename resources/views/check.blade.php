@@ -62,13 +62,11 @@
                         <td>未審核</td>
                         <td>
                             <!--彈出修改視窗 Button trigger modal -->
-                            <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                            <button type="button" class="btnSelect btn btn-primary" data-toggle="modal" data-target="#exampleModal1" >
                                 審核
                             </button>
                         </td>
                     @endif
-
-
                 </tr>
             @endforeach
         @endif
@@ -76,10 +74,44 @@
     {{ $leave->links() }}
     </div>
 
-
-
-
     <!--/////////////////////////////////////////// 顯示選取資料 -->
+    <div id="output"></div>
+        <!--'修改'彈出視窗的內容 Modal -->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">申請詳細資訊</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ url("/check_update") }}" method="POST">
+                        {{ csrf_field() }}
+                        <p class="modal-body">
+                            <label>編號<input type="text" class="form-control" name="id" id="id" readonly="readonly" ></label>
+                            <label>員工號<input type="text" class="form-control" name="user_id" id="user_id" readonly="readonly" ></label>
+                            <label>假別<input type="text" class="form-control" name="type" id="type" readonly="readonly"></label>
+                            <label>申請時間<input type="text" class="form-control" name="apply_time" id="apply_time" readonly="readonly"></label>
+                            <label>開始時間<input type="text" class="form-control" name="start_time" id="start_time" readonly="readonly"></label>
+                            <label>結束時間<input type="text" class="form-control" name="end_time" id="end_time" readonly="readonly"></label>
+                            <br>
+                            <label>事由</label>
+                            <input type="text" class="form-control" name="reason" id="reason" readonly="readonly">
+                            <label>證明</label>
+                            <input type="text" class="form-control" name="prove" id="prove" readonly="readonly">
+
+                            <input type="checkbox" name="update_status" value="1" >核准<br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">確定</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+    </div>
+
     <div id="output"></div>
     <!--'修改'彈出視窗的內容 Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,30 +127,22 @@
                 <form action="{{ url("/check_update") }}" method="POST">
                     {{ csrf_field() }}
                     <p class="modal-body">
-                        <label>編號<input type="text" class="form-control" name="id" id="id" readonly="readonly" ></label>
-                        <label>員工號<input type="text" class="form-control" name="user_id" id="user_id" readonly="readonly" ></label>
-                        <label>假別<input type="text" class="form-control" name="type" id="type" readonly="readonly"></label>
-                        <label>申請時間<input type="text" class="form-control" name="apply_time" id="apply_time" readonly="readonly"></label>
-                        <label>開始時間<input type="text" class="form-control" name="start_time" id="start_time" readonly="readonly"></label>
-                        <label>結束時間<input type="text" class="form-control" name="end_time" id="end_time" readonly="readonly"></label>
+                        <label>編號<input type="text" class="form-control" name="id1" id="id1" readonly="readonly" ></label>
+                        <label>員工號<input type="text" class="form-control" name="user_id1" id="user_id1" readonly="readonly" ></label>
+                        <label>假別<input type="text" class="form-control" name="type1" id="type1" readonly="readonly"></label>
+                        <label>申請時間<input type="text" class="form-control" name="apply_time1" id="apply_time1" readonly="readonly"></label>
+                        <label>開始時間<input type="text" class="form-control" name="start_time1" id="start_time1" readonly="readonly"></label>
+                        <label>結束時間<input type="text" class="form-control" name="end_time1" id="end_time" readonly="readonly"></label>
                         <br>
                         <label>事由</label>
-                        <input type="text" class="form-control" name="reason" id="reason" readonly="readonly">
+                        <input type="text" class="form-control" name="reason1" id="reason1" readonly="readonly">
                         <label>證明</label>
-                        <input type="text" class="form-control" name="prove" id="prove" readonly="readonly">
-                        <input type="text" class="form-control" name="status" id="status" readonly="readonly">
-                        @if($leaves->status==0)
-                        <input type="checkbox" name="update_status" value="1" >核准<br>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                            <button type="submit" class="btn btn-primary">確定</button>
-                        </div>
-                        @else
-                            已審核
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
-                        </div>
-                        @endif
+                        <input type="text" class="form-control" name="prove1" id="prove1" readonly="readonly">
+                        已審核
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+                    </div>
+
 
                 </form>
             </div>
@@ -141,7 +165,6 @@
                 var col5=currentRow.find("td:eq(5)").html();
                 var col6=currentRow.find("td:eq(6)").html();
                 var col7=currentRow.find("td:eq(7)").html();
-                var col8=currentRow.find("td:eq(8)").html();
 
                 $('#id').val(col0.trim());
                 $('#user_id').val(col1.trim());
@@ -151,7 +174,15 @@
                 $('#start_time').val(col5.trim());
                 $('#end_time').val(col6.trim());
                 $('#prove').val(col7.trim());
-                $('#status').val(col8.trim());
+
+                $('#id1').val(col0.trim());
+                $('#user_id1').val(col1.trim());
+                $('#type1').val(col2.trim());
+                $('#reason1').val(col3.trim());
+                $('#apply_time1').val(col4.trim());
+                $('#start_time1').val(col5.trim());
+                $('#end_time1').val(col6.trim());
+                $('#prove1').val(col7.trim());
 
             });
         });
