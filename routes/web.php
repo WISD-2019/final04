@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('check','CheckController@load_page');
-Route::post('Check_update', "CheckController@update");
+Route::post('check_update', "CheckController@update");
 
 
 
