@@ -41,6 +41,10 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 
+Route::get('attend','AttendanceController@attend')->name('attend');
+
+
+
 //人員新增刪除修改
 Route::group(['prefix'=>'user'],function (){
 
@@ -57,10 +61,7 @@ Route::group(['prefix'=>'user'],function (){
 
 
 });
-// Route::get('user', function () {
-//     return view('user');
-// });
-// Route::post('insert','UserController@insert')->name('insert');
+
 
 
 
