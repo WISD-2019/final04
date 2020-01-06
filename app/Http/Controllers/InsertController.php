@@ -20,19 +20,41 @@ class InsertController extends Controller
     public function index()
     {
             $user = User::paginate(5);
-            return View('user',['user'=>$user]);
+            $userid=User::latest()->get();
+            foreach($userid as $userid)
+            {
+                
+            }
+            return View('user',['user'=>$user,'userid'=>$userid]);
         
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * 
      * @return \Illuminate\Http\Response
      */
 
     //新增人員
     public function insert(Request $request){
        
+         $v = Validator::make($request->all(), [
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            //             'user_id' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+
+            // 'phone' => ['required', 'string', 'min:10', 'max:10'],]);
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'user_id' => ['required', 'string', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'min:10', 'max:10'],
+            'username' => ['required', 'string', 'max:255', 'unique:users']
+
+         ]);
+            if ($v->fails()){
+                return redirect()->back()->withErrors($v->errors());
+            }
+
+
         $data=array(
             'user_id'=>$request->input('user_id'),
             'type'=>$request->input('type'),
@@ -45,11 +67,10 @@ class InsertController extends Controller
             "work"=>$request->input('work'),
             "phone"=>$request->input('phone')
         );
-        
         User::insert($data);
+      
+                   return redirect('user');
 
-        return redirect('user');
-       
     }
     /**
      * Store a newly created resource in storage.
