@@ -14,6 +14,7 @@
                         <th>{{Auth::user()->name}}</th>
                         <th>假別</th>
                         <th>理由</th>
+                        <th>申請時間</th>
                         <th>審核狀況</th>
                     </tr>
                     </thead>
@@ -23,7 +24,14 @@
                         <td></td>
                         <td>{{$data->type}}</td>
                         <td>{{$data->reason}}</td>
-                        <td>{{$data->status}}</td>
+                        <td>{{$data->apply_time}}</td>
+                        <td>
+                            @if($data->status==1)
+                                已通過
+                            @else
+                                未通過
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>
