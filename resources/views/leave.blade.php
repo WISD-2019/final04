@@ -9,7 +9,7 @@
         <div class="thumbnail">
             <div class="caption">
               <H2>請假出差管理</H2>
-                <form method="POST" action="{{route('submit')}}" enctype="multipart/form-data">
+                <form id="form" method="POST" action="{{route('submit')}}" enctype="multipart/form-data">
                 @csrf
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" class="custom-control-input" id="customRadio" name="example" value="leave">
@@ -92,9 +92,10 @@ $(document).ready(function(){
                     str+=("</div>");
                     str+=("</div>");
 
+                    str+=("<input type=\"hidden\" name=\"select\" value=\"leave\">");
 
                     str+=("<button type=\"submit\" class=\"btn btn-primary\">提交申請</button>");
-
+ 
                     $( ".add" ).append(str);
                 break;
 
@@ -164,7 +165,10 @@ $(document).ready(function(){
                     str+=("</div>");
                     str+=("</div>");
 
+                    str+=("<input type=\"hidden\" name=\"select\" value=\"travel\">");
+
                     str+=("<button type=\"submit\" class=\"btn btn-primary\">提交申請</button>");
+
                     $( ".add" ).append(str);
                 break;
             }
