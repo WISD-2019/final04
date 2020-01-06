@@ -1,0 +1,104 @@
+
+/* ==== Google font ==== */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
+@import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
+
+/* ---------------------------------------------------------------------------- */
+/* -------------------------------------Content-------------------------------- */
+/* ---------------------------------------------------------------------------- */
+
+#page-content{}
+.index-page {}
+
+.archives-page,
+.single-page {padding: 30px 0;}
+
+.single-page blockquote {position: relative;padding: 30px 120px;text-align: center;font-size: 33px; margin: 20px 0;border:none;}
+.single-page blockquote:before, .single-page blockquote:after {position: absolute;width: 60px;height: 60px;font-size: 120px;line-height: 1; }
+.single-page blockquote:before {top: 0;left: 0;content: "\201C"; }
+.single-page blockquote:after {top: 0;right: 0;content: "\201D"; }
+@media only screen and (max-width: 1100px) {
+ .single-page blockquote {
+    font-size: 25px; } }
+@media only screen and (max-width: 960px) {
+ .single-page blockquote {
+    padding: 30px 60px;
+    font-size: 18px; }
+    blockquote:before, blockquote:after {
+      width: 30px;
+      height: 30px;
+      font-size: 60px; } }
+@media only screen and (max-width: 690px) {
+ .single-page blockquote {
+    padding: 10px 30px;
+    font-size: 16px; }
+  .single-page  blockquote:before, .single-page blockquote:after {
+      font-size: 30px; } }
+
+.service-page article,
+.service-page article .art-header{padding: 0;}
+.service-page article .art-content{padding: 0 30px 30px;}
+.service-page article .art-content h3{margin: 0 0 10px;}
+	  
+/* ---HomePage--- */
+.box-content {margin-bottom: 40px;}
+
+.box-content.box-style-1{background: url(../images/box-style-1.jpg) no-repeat fixed 100% 100%; }
+.box-content.box-style-2{background: url(../images/box-style-2.jpg) no-repeat fixed 100% 100%; }
+
+.box-content.box-1 {}
+.box-content.box-1 .service{padding: 50px 30px 20px;text-align: center;background:#fff;-webkit-box-shadow: 0px 56px 36px -60px #121D12; -moz-box-shadow: 0px 56px 36px -60px #121D12; -o-box-shadow: 0px 56px 36px -60px #121D12;min-height: 450px;}
+.box-content.box-1 .service h3{color: #363638;font-size:25px;text-transform:uppercase;}
+.box-content.box-1 .service img{display: inline-block;margin-bottom:10px;}
+
+.box-content.box-2,
+.box-content.box-4 {text-align: center;padding: 70px 30px;}
+
+.box-content.box-2 h3,
+.box-content.box-2 p,
+.box-content.box-4 h3,
+.box-content.box-4 p{color:#fff;}
+
+.box-content.box-2 h3,
+.box-content.box-4 h3{margin: 30px 0 40px;font-size: 40px;}
+
+.box-content.box-3 {background: #fff;padding: 40px;}
+.box-content.box-3 h4{margin: 0 0 15px;}
+.box-content.box-3 ul li{margin-bottom: 15px;}
+.box-content.box-3 ul li a{color: #00bbd3;}
+.box-content.box-3 ul li a:hover{color: #E84C3D;}
+.box-content.box-3 ul li a i.fa{font-size: 22px; margin-right: 10px;}
+
+.box-content.box-4{}
+
+.box-content.box-5{background: #fff;padding: 40px;}
+.box-content.box-5 img.testimonials{max-width: 200px;}
+.box-content.box-5 .box-comment:before{color: #e8e6e6;content: "“";display: inline-block;font-size: 124px;line-height: inherit;padding: 0 14px 0 0;position: relative;top: 22px;vertical-align: top;}
+.box-content.box-5 .box-comment{ font-size: 24px;line-height: 42px;margin-bottom: 24px;padding: 6px 0 0;}
+
+/* ----------------- */
+/* ---MainContent--- */
+#main-content {margin-bottom: 30px;}
+
+article{background:#ffffff;padding: 20px 40px 40px;margin-bottom:30px;}
+article:after, article:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
+article .info {margin: 5px 0 10px 0;}
+article .info a{text-decoration: underline;}
+article .info a:hover {}
+article h2 {font-size: 30px;}
+
+article .art-header{padding: 5px 0px;}
+
+article .art-content {}
+article .art-content img{margin-bottom: 20px;}
+
+article .art-content h2 {font-size: 1.7em;line-height: 2em;padding: 0px 20px;}
+article .art-content ol {float: left;text-align: justify;margin: 10px 50px;font-size: 16px;list-style-type: circle;}
+
+article .excerpt {border-bottom: 1px dashed #aaa;border-top: 1px dashed #aaa;margin: 20px 0;}
+article .excerpt p{color: #888;}
+article .dropcap {font-size: 70px;line-height: 70px;font-weight: 500;float: left;margin-right: 20px;}
+
+
+
+
