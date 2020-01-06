@@ -27,7 +27,7 @@ Route::post('check_update', "CheckController@update");
 Route::get('leave', function () {
     return view('leave');
 });
-Route::post('leave','LeaveController@submit')->name('submit');
+Route::post('leave','LeaveTravelController@submit')->name('submit');
 //打卡頁面
 Route::get('on_work', function () {
     return view('attendance');
@@ -36,7 +36,7 @@ Route::get('on_work', function () {
 Route::post('work','InsertController@work')->name('work');
 
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('record','LeaveController@record')->name('record');
+    Route::get('record','LeaveTravelController@record')->name('record');
 
 });
 
