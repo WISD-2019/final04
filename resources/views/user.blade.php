@@ -89,7 +89,7 @@
             </div>
             <!-- 員工編號-->
             <div class="control-group">
-                <label class="control-label">員工編號({{$users->user_id}})：
+                <label class="control-label">員工編號({{$userid->user_id}})：
                 <input id="user_id" name="user_id" class="form-control" type="text" placeholder="請輸入員工編號" class="input-large" required="">
             </div>
             <!-- 帳號-->
@@ -133,7 +133,7 @@
             <!-- 電話-->
             <div class="control-group">
                 <label class="control-label" >電話： 
-                <input id=phone name=phone type="text" class="form-control" placeholder="請輸入手機號碼" required="">
+                <input id=phone name=phone type="text" class="form-control" placeholder="請輸入電話" required="">
             </div>
             <!-- 彈窗按鈕-->
             <div class="modal-footer">
