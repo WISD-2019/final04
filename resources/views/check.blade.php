@@ -76,7 +76,7 @@
 
     <!--/////////////////////////////////////////// 顯示選取資料 -->
     <div id="output"></div>
-        <!--'修改'彈出視窗的內容 Modal -->
+        <!--未審核'彈出視窗的內容 Modal -->
         <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -105,6 +105,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                             <button type="submit" class="btn btn-primary">確定</button>
+                            <button type="submit" class="btn btn-primary">確定</button>
                         </div>
 
                     </form>
@@ -113,7 +114,7 @@
     </div>
 
     <div id="output"></div>
-    <!--'修改'彈出視窗的內容 Modal -->
+    <!--'已審核'彈出視窗的內容 Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -132,7 +133,7 @@
                         <label>假別<input type="text" class="form-control" name="type1" id="type1" readonly="readonly"></label>
                         <label>申請時間<input type="text" class="form-control" name="apply_time1" id="apply_time1" readonly="readonly"></label>
                         <label>開始時間<input type="text" class="form-control" name="start_time1" id="start_time1" readonly="readonly"></label>
-                        <label>結束時間<input type="text" class="form-control" name="end_time1" id="end_time" readonly="readonly"></label>
+                        <label>結束時間<input type="text" class="form-control" name="end_time1" id="end_time1" readonly="readonly"></label>
                         <br>
                         <label>事由</label>
                         <input type="text" class="form-control" name="reason1" id="reason1" readonly="readonly">
@@ -142,8 +143,6 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
                     </div>
-
-
                 </form>
             </div>
         </div>
@@ -187,8 +186,5 @@
             });
         });
     </script>
-
-
-
 
 @endsection

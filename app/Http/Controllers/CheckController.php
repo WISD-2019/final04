@@ -25,11 +25,8 @@ class CheckController extends Controller
 
     public function load_page(Request $request)
     {
-        $leave = Leave::paginate(5);
-        $user = User::SELECT('user_id','name');
 
-        $leave_id = Leave::SELECT('user_id');
-dd($leave_id);
+        $leave = Leave::paginate(5);
         $count_id = Leave::SELECT('id')->count();
 
         return View('check',['leave' => $leave,'count_id' => $count_id]);
