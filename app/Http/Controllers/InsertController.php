@@ -20,8 +20,8 @@ class InsertController extends Controller
     public function index()
     {
             $user = User::paginate(5);
-            $userid=User::latest()->get();
-            foreach($userid as $userid)
+            $id=User::all();
+            foreach($id as $userid)
             {
                 
             }
