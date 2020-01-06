@@ -19,7 +19,7 @@ class InsertController extends Controller
     //人員介面
     public function index()
     {
-            $user=User::all();
+            $user = User::paginate(5);
             return View('user',['user'=>$user]);
         
     }
@@ -92,7 +92,7 @@ class InsertController extends Controller
      * @return \Illuminate\Http\Response
      */
     //修改人員
-    public function update(Request $request, Works $works)
+    public function update(Request $request)
     {
     $user_id = $request->input('user_id1');  
     $name = $request->input('name1');
@@ -102,7 +102,7 @@ class InsertController extends Controller
     $work= $request->input('work1');
     $phone = $request->input('phone1');
    
-    User::where('user_id',$request->input('user_id1'))->update(['user_id'=>$user_id,'name' =>$name,'email' => $email,'age' => $age,'sex' => $sex,'work' => $work,'phone' => $phone]);
+    User::where('id',$request->input('id'))->update(['user_id'=>$user_id,'name' =>$name,'email' => $email,'age' => $age,'sex' => $sex,'work' => $work,'phone' => $phone]);
     
     return redirect('user');
     }
