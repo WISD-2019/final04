@@ -18,6 +18,8 @@ class CreateTravelsTable extends Migration
             $table->integer('user_id');
             $table->string('location');
             $table->string('reason');
+            $table->integer('status');
+            $table->timestamp('apply_time')->nullable();
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();
         });
