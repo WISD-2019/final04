@@ -147,7 +147,9 @@ class InsertController extends Controller
         if(($request->input('on_work'))!==null){
             $data=array(
             "user_id"=>$request->input('on_work'),
-            "on_work"=> Carbon::now()
+            "on_work"=> Carbon::now(),
+            "name"=>substr(User::where('user_id',$request->input('on_work'))->get("name"),10,-3)
+
             );
             Works::insert($data);
         echo "<script>alert('員工編號：'+'$data[user_id]\\n'+'　上班打卡成功'); location.href = 'on_work';</script>";

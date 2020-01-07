@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', '審核')
+@section('title', '出差申請審核')
 
 @section('content')
     <form id="send" action="/checkTravel" method="POST">
@@ -24,7 +24,7 @@
     </form>
 
 
-    <h>出差</h>
+    <h1>出差申請</h1>
     <table class="table table-bordered" style="color:#000000" >
         <thead>
         <tr>
@@ -36,9 +36,8 @@
             <th  scope="col">審核狀態</th>
         </tr>
         </thead>
-        <div class="panel-body">
+        <div class="panel-body" >
             <tbody id="Mytable2">
-            @if ($count_id > 0)
                 @foreach ($travel as $travels)
                     <tr>
                         <td scope="row">{{$travels->id}} </td>
@@ -48,6 +47,7 @@
                         <td>{{$travels->apply_time}} </td>
                         <td style="display:none">{{$travels->start_time}} </td>
                         <td style="display:none">{{$travels->end_time}} </td>
+                        <td style="display:none">{{$travels->updated_at}} </td>
                         @if($travels->status == "1")
                             <td>已審核</td>
                             <td>
@@ -66,7 +66,6 @@
                         @endif
                     </tr>
         @endforeach
-        @endif
     </table>
     {{ $travel->links() }}
     </div>
@@ -95,13 +94,12 @@
                         <br>
                         <label>事由</label>
                         <input type="text" class="form-control" name="reason" id="reason" readonly="readonly">
-
-                        <input type="checkbox" name="update_status" value="1" >核准<br>
+                    <div style="text-align:right" >
+                        <pre><input type="checkbox" name="update_status" value="1">核准         </pre><br></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                         <button type="submit" class="btn btn-primary">確定</button>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -123,7 +121,7 @@
                     {{ csrf_field() }}
                     <p class="modal-body">
                         <label>編號<input type="text" class="form-control" name="id1" id="id1" readonly="readonly" ></label>
-                        <label>員工號<input type="text" class="form-control" name="user_id1" id="user_id1" readonly="readonly" ></label>
+                        <label>申請人姓名<input type="text" class="form-control" name="user_id1" id="user_id1" readonly="readonly" ></label>
                         <label>假別<input type="text" class="form-control" name="type1" id="type1" readonly="readonly"></label>
                         <label>申請時間<input type="text" class="form-control" name="apply_time1" id="apply_time1" readonly="readonly"></label>
                         <label>開始時間<input type="text" class="form-control" name="start_time1" id="start_time1" readonly="readonly"></label>
@@ -131,9 +129,8 @@
                         <br>
                         <label>事由</label>
                         <input type="text" class="form-control" name="reason1" id="reason1" readonly="readonly">
-                        <label>證明</label>
-                        <input type="text" class="form-control" name="prove1" id="prove1" readonly="readonly">
-                        已審核
+                        已核准 核准時間:
+                        <input type="text" class="form-control" name="update_time1" id="update_time1" readonly="readonly">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
                     </div>
@@ -175,6 +172,7 @@
                 $('#apply_time1').val(col4.trim());
                 $('#start_time1').val(col5.trim());
                 $('#end_time1').val(col6.trim());
+                $('#update_time1').val(col7.trim());
 
 
             });
