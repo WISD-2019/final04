@@ -43,7 +43,7 @@ class CheckController extends Controller
         $res = $client->POST($this->docker_ip,[
 
             'form_params' => [
-                "msg" => '申請人'.$request->id.'的請假申請已通過',
+                "msg" => '申請人'.$request->user_id.'的請假申請已通過',
                 "pwd"=>"opendoor"
             ]
 
@@ -64,7 +64,7 @@ class CheckController extends Controller
         $res = $client->POST($this->docker_ip,[
 
             'form_params' => [
-                "msg" => '申請人'.$request->id.'的出差申請已通過',
+                "msg" => '申請人'.$request->user_id.'的出差申請已通過',
                 "pwd"=>"opendoor"
             ]
 
