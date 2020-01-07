@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Leave;
-use App\User;
+use App\Travel;
 
 use Illuminate\Http\Request;
 
@@ -23,13 +23,18 @@ class CheckController extends Controller
         return View('check');
     }
 
-    public function load_page(Request $request)
+    public function load_page_leave(Request $request)
     {
-
         $leave = Leave::paginate(5);
         $count_id = Leave::SELECT('id')->count();
 
         return View('check',['leave' => $leave,'count_id' => $count_id]);
+    }
+    public function load_page_travel(Request $request)
+    {
+        $travel = Travel::paginate(5);
+        $count_id = Travel::SELECT('id')->count();
+        return View('checkTravel',['travel' => $travel,'count_id' => $count_id]);
     }
 
     /**
@@ -83,12 +88,23 @@ class CheckController extends Controller
      * @param  \App\check  $check
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update_leave(Request $request)
     {
-        $selectid = $request->input("id");
+
         $updateRow = Leave::where('id', $request->input("id"))->first();
         if(!$updateRow){
-            return redirect('check')->with('selectid', $selectid);
+            return redirect('check');
+        }
+        $updateRow->status = $request->input('update_status');
+        $updateRow->save();
+        return back()->with('success', '審核成功');
+    }
+    public function update_travel(Request $request)
+    {
+
+        $updateRow = Travel::where('id', $request->input("id"))->first();
+        if(!$updateRow){
+            return redirect('checkTravel');
         }
         $updateRow->status = $request->input('update_status');
         $updateRow->save();

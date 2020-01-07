@@ -19,8 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('check','CheckController@load_page');
-Route::post('check_update', "CheckController@update");
+Route::get('check','CheckController@load_page_leave');
+Route::post('check_update_leave', "CheckController@update_leave");
+Route::get('checkTravel','CheckController@load_page_travel');
+Route::post('check_update_travel', "CheckController@update_travel");
 
 
 
