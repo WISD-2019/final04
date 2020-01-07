@@ -14,6 +14,7 @@
 
   <div class="col-lg-15">
     <div class="thumbnail">
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
 
     <table class="table  table-dark table-striped" id= "table-id" style="text-align:center">
        
