@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'user')
+@section('title', '人員管理')
 
 @section('content')
 
