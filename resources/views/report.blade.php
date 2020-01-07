@@ -50,13 +50,49 @@
                 <td></td>
                 <td>{{$on_works}}</td>
             @foreach($query as $users) 
-            @if(substr($users->on_work,0,10)==$on_works)
-                <td>{{substr($users->on_work,10,18)}}</td>
-                <td>{{substr($users->off_work,10,18)}}</td>
+                @if(substr($users->on_work,0,10)==$on_works)
+                    <td>{{substr($users->on_work,10,18)}}</td>
+                    <td>{{substr($users->off_work,10,18)}}</td>
+                @endif
+            @endforeach
+            @foreach($leave as $leaves )
+             @if((substr($leaves->start_time,0,10))==$on_works&&($leaves->status=="1"))
                 <td></td>
-             </tr>
-             @endif
-             @endforeach
+                <td></td>
+                <td>{{$leaves->type}}</td>  
+                @elseif((substr($leaves->start_time,0,10))==$on_works&&($leaves->status=="0"))
+                <td></td>
+                <td></td>
+                <td>缺曠</td>
+                @endif 
+                @if((substr($leaves->start_time,0,10))==$on_works&&(isset($leaves->status)))
+                <td></td>
+                <td></td>
+                <td>缺曠</td>
+               @else
+               <td></td>
+                <td></td>
+                <td>缺曠</td>
+               @endif 
+
+            @endforeach
+            @foreach($travel as $travels)
+                @if((substr($travels->start_time,0,10))==$on_works&&($travels->status=="1"))
+                <td></td>
+                <td></td>
+                <td>出差</td> 
+                </tr>
+                @elseif((substr($travels->start_time,0,10))==$on_works&&($travels->status=="0"))
+                <td></td>
+                <td></td>
+                <td>缺曠</td>
+               
+                @endif
+            @endforeach
+           
+            
+             
+            
             @endforeach 
             </table>
         </form>
