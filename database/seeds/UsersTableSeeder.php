@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class UsersTableSeeder extends Seeder
                 'user_id'=>$number,
                 'type'=>0,
                 'username'=>'abc'.$number,
-                'password'=>'abcd'.$number,
+                'password'=>Hash::make(123456),
                 'name'=>$number,
                 'email'=>$number.'@gmail.com',
                 'age'=>$number,
