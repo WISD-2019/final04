@@ -38,7 +38,6 @@
         </thead>
         <div class="panel-body" >
             <tbody id="Mytable2">
-            @if ($count_id > 0)
                 @foreach ($travel as $travels)
                     <tr>
                         <td scope="row">{{$travels->id}} </td>
@@ -67,7 +66,6 @@
                         @endif
                     </tr>
         @endforeach
-        @endif
     </table>
     {{ $travel->links() }}
     </div>

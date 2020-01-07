@@ -38,7 +38,7 @@
         </thead>
         <div class="panel-body">
         <tbody id="Mytable2">
-        @if ($count_id > 0)
+
             @foreach ($leave as $leaves)
                 <tr>
                     <td scope="row">{{$leaves->id}} </td>
@@ -68,7 +68,7 @@
                     @endif
                 </tr>
             @endforeach
-        @endif
+
     </table>
     {{ $leave->links() }}
     </div>
