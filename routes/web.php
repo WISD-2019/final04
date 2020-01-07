@@ -32,9 +32,11 @@ Route::post('check_update_travel', "CheckController@update_travel");
 
 
 //打卡頁面
+
 Route::get('on_work', function () {
     return view('attendance');
 });
+
 //打卡頁面傳送資料
 Route::post('work','InsertController@work')->name('work');
 
@@ -48,22 +50,21 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 //報表
+Route::group(['middleware'=>'auth'],function(){
 Route::get('attend','AttendanceController@attend')->name('attend');
-
+});
 
 
 //人員新增刪除修改
-Route::group(['prefix'=>'user'],function (){
-
-    Route::get('/','UserController@index');
-    Route::post('/insert','UserController@insert')->name('insert');
-    Route::post('/delete','UsersController@delete')->name('delete');
-    // Route::post('/update','InsertController@update')->name('update');
-
+Route::group(['prefix'=>'user','middleware'=>'auth'],function (){
+    //人員開始畫面，倒出所有人員的資料
     Route::get('/','InsertController@index');
+    //人員新增
     Route::post('/insert','InsertController@insert')->name('insert');
+    //人員刪除
     // Route::delete('{users}', 'InsertController@destroy');
     Route::post('/delete','InsertController@delete')->name('delete');
+    //人員修改
     Route::post('/update','InsertController@update')->name('update');
 
 

@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'check')
+@section('title', '打卡頁面')
 
 
 @section('content')
