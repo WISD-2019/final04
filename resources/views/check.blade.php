@@ -34,7 +34,6 @@
             <th  scope="col">事由</th>
             <th  scope="col">申請時間</th>
             <th  scope="col">審核狀態</th>
-
         </tr>
         </thead>
         <div class="panel-body">
@@ -50,7 +49,6 @@
                     <td style="display:none">{{$leaves->start_time}} </td>
                     <td style="display:none">{{$leaves->end_time}} </td>
                     <td style="display:none">{{$leaves->prove}} </td>
-                    <td style="display:none">{{$leaves->status}} </td>
                     @if($leaves->status == "1")
                         <td>已審核</td>
                         <td>
@@ -86,7 +84,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ url("/check_update") }}" method="POST">
+                    <form action="{{ url("/check_update_leave") }}" method="POST">
                         {{ csrf_field() }}
                         <p class="modal-body">
                             <label>編號<input type="text" class="form-control" name="id" id="id" readonly="readonly" ></label>
