@@ -20,8 +20,8 @@ class InsertController extends Controller
     public function index()
     {
             $user = User::paginate(5);
-            $userid=User::latest()->get();
-            foreach($userid as $userid)
+            $id=User::all();
+            foreach($id as $userid)
             {
                 
             }
@@ -150,17 +150,13 @@ class InsertController extends Controller
             "on_work"=> Carbon::now()
             );
             Works::insert($data);
-        //   dd($data);
         echo "<script>alert('員工編號：'+'$data[user_id]\\n'+'　上班打卡成功'); location.href = 'on_work';</script>";
 
         }
         else if(($request->input('off_work'))!==null){
-            $data=array(
-            "user_id"=>$request->input('off_work'),
-            "off_work"=> Carbon::now()
-            );
-            Works::insert($data);
-        echo "<script>alert('員工編號：'+'$data[user_id]\\d'+'　下班打卡成功'); location.href = 'on_work';</script>";
+            $user_id=$request->input('off_work'); 
+            Works::where('on_work','like',date("Y-m-d").'%')->where('user_id',$user_id)->update(['off_work' =>Carbon::now() ]);
+            echo "<script>alert('員工編號：'+'$user_id\\n'+'　下班打卡成功'); location.href = 'on_work';</script>";
         }
         
 

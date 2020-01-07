@@ -22,6 +22,7 @@ class CreateTravelsTable extends Migration
             $table->timestamp('apply_time')->nullable();
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();
+            $table->timestamps();
         });
     }
 

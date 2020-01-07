@@ -19,8 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('check','CheckController@load_page');
-Route::post('check_update', "CheckController@update");
+Route::get('check','CheckController@load_page_leave');
+Route::post('check_update_leave', "CheckController@update_leave");
+Route::get('checkTravel','CheckController@load_page_travel');
+Route::post('check_update_travel', "CheckController@update_travel");
 
 
 
@@ -40,6 +42,10 @@ Route::group(['middleware'=>'auth'],function(){
 
 });
 
+//報表
+Route::get('attend','AttendanceController@attend')->name('attend');
+
+
 
 //人員新增刪除修改
 Route::group(['prefix'=>'user'],function (){
@@ -57,10 +63,7 @@ Route::group(['prefix'=>'user'],function (){
 
 
 });
-// Route::get('user', function () {
-//     return view('user');
-// });
-// Route::post('insert','UserController@insert')->name('insert');
+
 
 
 
