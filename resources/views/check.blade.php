@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', '審核')
+@section('title', '請假申請審核')
 
 @section('content')
     <form id="send" action="/check" method="POST">
@@ -24,7 +24,7 @@
     </form>
 
 
-<h>請假</h>
+<h1>  請假申請</h1>
     <table class="table table-bordered" style="color:#000000" >
         <thead>
         <tr>
@@ -49,6 +49,7 @@
                     <td style="display:none">{{$leaves->start_time}} </td>
                     <td style="display:none">{{$leaves->end_time}} </td>
                     <td style="display:none">{{$leaves->prove}} </td>
+                    <td style="display:none">{{$leaves->updated_at}} </td>
                     @if($leaves->status == "1")
                         <td>已審核</td>
                         <td>
@@ -98,8 +99,8 @@
                             <input type="text" class="form-control" name="reason" id="reason" readonly="readonly">
                             <label>證明</label>
                             <input type="text" class="form-control" name="prove" id="prove" readonly="readonly">
-
-                            <input type="checkbox" name="update_status" value="1" >核准<br>
+                            <div style="text-align:right" >
+                            <pre><input type="checkbox" name="update_status" value="1">核准         </pre><br></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
                             <button type="submit" class="btn btn-primary">確定</button>
@@ -136,7 +137,8 @@
                         <input type="text" class="form-control" name="reason1" id="reason1" readonly="readonly">
                         <label>證明</label>
                         <input type="text" class="form-control" name="prove1" id="prove1" readonly="readonly">
-                        已審核
+                         已核准 核准時間:
+                        <input type="text" class="form-control" name="update_time1" id="update_time1" readonly="readonly">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
                     </div>
@@ -161,6 +163,7 @@
                 var col5=currentRow.find("td:eq(5)").html();
                 var col6=currentRow.find("td:eq(6)").html();
                 var col7=currentRow.find("td:eq(7)").html();
+                var col8=currentRow.find("td:eq(8)").html();
 
                 $('#id').val(col0.trim());
                 $('#user_id').val(col1.trim());
@@ -179,6 +182,7 @@
                 $('#start_time1').val(col5.trim());
                 $('#end_time1').val(col6.trim());
                 $('#prove1').val(col7.trim());
+                $('#update_time1').val(col8.trim());
 
             });
         });
