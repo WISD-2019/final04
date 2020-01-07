@@ -11,14 +11,21 @@
                 <a class="nav-link" href="/">首頁 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="on_work">員工打卡</a>
             </li>
+            @if (Auth::check())
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="leave">請假出差申請</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
+            @endif
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">請假出差管理</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="leave">請假出差申請</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li> -->
 
         </ul>
         <ul class="nav navbar-nav ml-auto">
@@ -30,7 +37,10 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('record') }}">
-                            <span class="fa fa-th-list"></span>{{ __('紀錄查詢') }}
+                            <span class="fa fa-th-list"></span>{{ __('請假出差查詢') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('attend') }}">
+                            <span class="fa fa-search"></span>{{ __('出缺勤查詢') }}
                         </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
