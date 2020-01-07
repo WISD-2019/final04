@@ -123,7 +123,7 @@
                     {{ csrf_field() }}
                     <p class="modal-body">
                         <label>編號<input type="text" class="form-control" name="id1" id="id1" readonly="readonly" ></label>
-                        <label>員工號<input type="text" class="form-control" name="user_id1" id="user_id1" readonly="readonly" ></label>
+                        <label>申請人姓名<input type="text" class="form-control" name="user_id1" id="user_id1" readonly="readonly" ></label>
                         <label>假別<input type="text" class="form-control" name="type1" id="type1" readonly="readonly"></label>
                         <label>申請時間<input type="text" class="form-control" name="apply_time1" id="apply_time1" readonly="readonly"></label>
                         <label>開始時間<input type="text" class="form-control" name="start_time1" id="start_time1" readonly="readonly"></label>
