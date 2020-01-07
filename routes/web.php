@@ -40,7 +40,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 });
 
-
+//報表
 Route::get('attend','AttendanceController@attend')->name('attend');
 
 
