@@ -15,7 +15,7 @@ class CreateWorksTable extends Migration
     {
         Schema::create('works', function (Blueprint $table) {
             $table->bigIncrements('id'); 
-            $table->string('user_id');
+            $table->integer('user_id');
             $table->string('name')->nullable();
             $table->string('lack')->nullable();
             $table->string('on_work')->nullable();
