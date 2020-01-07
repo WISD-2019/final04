@@ -10,11 +10,19 @@ class AuthController extends Controller {
      *
      * @return Response
      */
-    public function authenticate()
+    public function authenticateLeave()
     {
         if (Auth::user()->type==1)
         {
             return redirect()->intended('check');
+        }
+        return back();
+    }
+    public function authenticateTravel()
+    {
+        if (Auth::user()->type==1)
+        {
+            return redirect()->intended('checkTravel');
         }
         return back();
     }
