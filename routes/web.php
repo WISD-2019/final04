@@ -19,17 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('LeaveAuth','AuthController@authenticateLeave');
+Route::get('TravelAuth','AuthController@authenticateTravel');
 Route::get('check','CheckController@load_page_leave');
-Route::post('check_update_leave', "CheckController@update_leave");
 Route::get('checkTravel','CheckController@load_page_travel');
+Route::post('check_update_leave', "CheckController@update_leave");
 Route::post('check_update_travel', "CheckController@update_travel");
 
 
 
-Route::get('leave', function () {
-    return view('leave');
-});
-Route::post('leave','LeaveTravelController@submit')->name('submit');
+
 //打卡頁面
 
 Route::get('on_work', function () {
@@ -40,6 +40,10 @@ Route::get('on_work', function () {
 Route::post('work','InsertController@work')->name('work');
 
 Route::group(['middleware'=>'auth'],function(){
+    Route::get('leave', function () {
+        return view('leave');
+    });
+    Route::post('leave','LeaveTravelController@submit')->name('submit');
     Route::get('record','LeaveTravelController@record')->name('record');
 
 });
