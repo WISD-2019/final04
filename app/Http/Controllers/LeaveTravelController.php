@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Leave;
+use App\Travel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,7 @@ class LeaveTravelController extends Controller
 {
     //
     public function record(){
-        $query=Leave::where('user_id',Auth::user()->id)->paginate(5);
+        $query=Leave::where('user_id',Auth::user()->id)->orderby('id','desc')->paginate(5);
         return View('record',['query'=>$query]);
     }
 
@@ -46,14 +47,23 @@ class LeaveTravelController extends Controller
                         'prove' =>$filename,
                         'apply_time'=>date('Y-m-d H:i:s')
                     ]);
-                    return back()->with('success', '申請成功');
+                    return back()->with('success', '請假申請成功');
                 }
                 return back()->with('error', '無效的檔案格式');
 
             }
         }
         else if($request->select=="travel") {
-            
+            Travel::insert([
+                'user_id'=>Auth::user()->id,
+                'location' =>$request->location,
+                'start_time'=>$request->start_time,
+                'end_time'=>$request->end_time,
+                'reason' =>$request->reason,
+                'status'=>0,
+                'apply_time'=>date('Y-m-d H:i:s')
+            ]);
+            return back()->with('success', '出差申請成功');
         }
     }
 }

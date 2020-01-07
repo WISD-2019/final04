@@ -43,7 +43,7 @@
             @foreach ($leave as $leaves)
                 <tr>
                     <td scope="row">{{$leaves->id}} </td>
-                    <td>{{$leaves->user_id}} </td>
+                    <td>{{$leaves->user->username}} </td>
                     <td>{{$leaves->type}} </td>
                     <td>{{$leaves->reason}} </td>
                     <td>{{$leaves->apply_time}} </td>
@@ -104,7 +104,6 @@
                             <input type="checkbox" name="update_status" value="1" >核准<br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                            <button type="submit" class="btn btn-primary">確定</button>
                             <button type="submit" class="btn btn-primary">確定</button>
                         </div>
 

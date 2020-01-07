@@ -18,7 +18,6 @@ class UsersTableSeeder extends Seeder
                 'id'=>$number,
                 'user_id'=>$number,
                 'type'=>0,
->>>>>>> 00cc7b30a8e358e4363a771aa36b516573ca07b2
                 'username'=>'abc'.$number,
                 'password'=>'abcd'.$number,
                 'name'=>$number,

@@ -92,7 +92,7 @@ class CheckController extends Controller
         }
         $updateRow->status = $request->input('update_status');
         $updateRow->save();
-        return redirect('check')->with('selectid', $selectid);
+        return back()->with('success', '審核成功');
     }
 
 
