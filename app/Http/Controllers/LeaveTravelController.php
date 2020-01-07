@@ -12,8 +12,9 @@ class LeaveTravelController extends Controller
 {
     //
     public function record(){
-        $query=Leave::where('user_id',Auth::user()->id)->orderby('id','desc')->paginate(5);
-        return View('record',['query'=>$query]);
+        $leave_query=Leave::where('user_id',Auth::user()->id)->orderby('id','desc')->paginate(5);
+        $travel_query=Travel::where('user_id',Auth::user()->id)->orderby('id','desc')->paginate(5);
+        return View('record',['leave_query'=>$leave_query,'travel_query'=>$travel_query]);
     }
 
     public function submit(Request $request ){
