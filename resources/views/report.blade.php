@@ -2,12 +2,10 @@
 
 @section('content')
 
-
-
+<!-- 選擇日期時間 -->
 <form id="send" action="{{route('attend')}}" method="POST">
             {{ csrf_field() }}
             <div class="row" >
-                
                 <div class="col-xs-6 col-md-2">
                     <span id="arg">開始時間:</span>
                 </div>
@@ -34,26 +32,33 @@
                     </div>
                 </div>
             </div>
-
+            <!-- 抓取資料庫資料 -->
             <div class="row">
                 <div class="col-md-6"></div><input id='sub_btn' style="margin: 2% ; margin-left : 80%"  class="btn-lg btn-success btn" type="submit" value="送出"/>
             </div>
             <table class="table table-dark table-striped" style="text-align:center">
 
             <tr>
+            <td>{{Auth::user()->name}}</td>
             <td>日期</td>
-            <td>姓名</td>
-            <td>狀態</td>
             <td>上班時間</td>
             <td>下班時間 </td>
+             <td>狀態</td>
             </tr>
-            
-            
+            @foreach($on_work as $on_works) 
+            <tr>
+                <td></td>
+                <td>{{$on_works}}</td>
+            @foreach($query as $users) 
+            @if(substr($users->on_work,0,10)==$on_works)
+                <td>{{substr($users->on_work,10,18)}}</td>
+                <td>{{substr($users->off_work,10,18)}}</td>
+                <td></td>
+             </tr>
+             @endif
+             @endforeach
+            @endforeach 
             </table>
-
-
-
-
         </form>
 
 
