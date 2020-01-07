@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Leave;
 use App\Travel;
-use Auth;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 
@@ -28,6 +28,7 @@ class CheckController extends Controller
         return View('checkTravel',['travel' => $travel]);
     }
 
+    private $docker_ip="lai.ofdl.nctu.me/line/push22.php";
     public function update_leave(Request $request)
     {
 
@@ -37,6 +38,16 @@ class CheckController extends Controller
         }
         $updateRow->status = $request->input('update_status');
         $updateRow->save();
+
+        $client = new \GuzzleHttp\Client();
+        $res = $client->POST($this->docker_ip,[
+
+            'form_params' => [
+                "msg" => '申請人'.$request->id.'的請假申請已通過',
+                "pwd"=>"opendoor"
+            ]
+
+        ]);
         return back()->with('success', '審核成功');
     }
     public function update_travel(Request $request)
@@ -48,6 +59,16 @@ class CheckController extends Controller
         }
         $updateRow->status = $request->input('update_status');
         $updateRow->save();
+
+        $client = new \GuzzleHttp\Client();
+        $res = $client->POST($this->docker_ip,[
+
+            'form_params' => [
+                "msg" => '申請人'.$request->id.'的出差申請已通過',
+                "pwd"=>"opendoor"
+            ]
+
+        ]);
         return back()->with('success', '審核成功');
     }
 }
