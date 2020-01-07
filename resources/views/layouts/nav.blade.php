@@ -15,6 +15,11 @@
             </li>
             @if (Auth::check())
             <li class="nav-item">
+                <a class="nav-link" href="user">人員管理</a>
+            </li>
+            @endif
+            @if (Auth::check())
+            <li class="nav-item">
                 <a class="nav-link" href="leave">請假出差申請</a>
             </li>
             @endif
@@ -28,6 +33,12 @@
                     </li>
                 @endif
             @endif
+            @if (Auth::check())
+            <li class="nav-item">
+                <a class="nav-link" href="attend">出勤紀錄</a>
+            </li>
+            @endif
+            
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">請假出差管理</a>
                 <div class="dropdown-menu">
