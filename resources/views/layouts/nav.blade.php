@@ -18,6 +18,16 @@
                 <a class="nav-link" href="leave">請假出差申請</a>
             </li>
             @endif
+            @if (Auth::check())
+                @if (Auth::user()->type==1)
+                    <li class="nav-item">
+                        <a class="nav-link" href="LeaveAuth">請假審核</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="TravelAuth">出差審核</a>
+                    </li>
+                @endif
+            @endif
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">請假出差管理</a>
                 <div class="dropdown-menu">
