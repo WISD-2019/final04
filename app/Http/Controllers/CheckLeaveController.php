@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 
 
-class CheckController extends Controller
+class CheckLeaveController extends Controller
 {
     public function index()
     {
@@ -19,7 +19,7 @@ class CheckController extends Controller
     public function load_page(Request $request)
     {
         $leave = Leave::paginate(5);
-        return View('check',['leave' => $leave]);
+        return View('checkLeave',['leave' => $leave]);
     }
 
     private $docker_ip="lai.ofdl.nctu.me/line/push22.php";
@@ -27,7 +27,7 @@ class CheckController extends Controller
     {
         $updateRow = Leave::where('id', $request->input("id"))->first();
         if(!$updateRow){
-            return redirect('check');
+            return redirect('checkLeave');
         }
         $updateRow->status = $request->input('update_status');
         $updateRow->save();
