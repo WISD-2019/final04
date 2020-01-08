@@ -14,7 +14,7 @@
 - Route::get('/', function () {return view('page');});
 
 請假審核
-- 頁面請假審核
+- 頁面請假審核 [3A632083 王咨淇](https://github.com/3A632083)
     - (Route::get('checkLeave','CheckLeaveController@load_page');)
 - 頁面出差審核
     - Route::get('checkTravel','checkTravelController@load_page');
