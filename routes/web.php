@@ -19,22 +19,26 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+//請假審核
 Route::group(['middleware'=>'auth'],function(){
+    //頁面請假審核
+    Route::get('checkLeave','CheckLeaveController@load_page');
+    //頁面出差審核
     Route::get('checkTravel','checkTravelController@load_page');
-    Route::get('check','CheckController@load_page');
+    //請假審核管理者身分驗證
+    Route::get('checkLeaveAuth', ['as' => 'LeaveAuth' , 'uses' => 'AuthController@authenticateLeave']);
+    //出差審核管理者身分驗證
+    Route::get('checkTravelAuth', ['as' => 'TravelAuth' , 'uses' => 'AuthController@authenticateTravel']);
     });
-
-Route::get('LeaveAuth','AuthController@authenticateLeave');
-Route::get('TravelAuth','AuthController@authenticateTravel');
-Route::post('updateLeaveStatus', "CheckController@updateLeaveStatus");
+//更新請假審核狀態Status
+Route::post('updateLeaveStatus', "CheckLeaveController@updateLeaveStatus");
+//更新出差審核狀態Status
 Route::post('updateTravelStatus', "checkTravelController@updateTravelStatus");
 
 
 
 
 //打卡頁面
-
 Route::get('on_work', function () {
     return view('attendance');
 });
