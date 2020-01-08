@@ -3,7 +3,7 @@
 @section('title', '請假申請審核')
 
 @section('content')
-    <form id="send" action="/check" method="POST">
+    <form id="send" action="/checkLeave" method="POST">
     {{ csrf_field() }}
         <style>
             .closebtn {
@@ -125,7 +125,7 @@
                     </button>
                 </div>
 
-                <form action="{{ url("/check_update") }}" method="POST">
+                <form action="{{ url("/updateLeaveStatus") }}" method="POST">
                     {{ csrf_field() }}
                     <p class="modal-body">
                         <label>編號<input type="text" class="form-control" name="id1" id="id1" readonly="readonly" ></label>
