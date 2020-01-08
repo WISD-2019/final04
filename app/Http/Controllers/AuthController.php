@@ -14,7 +14,7 @@ class AuthController extends Controller {
     {
         if (Auth::user()->type==1)
         {
-            return redirect()->intended('check');
+            return redirect()->intended('checkLeave');
         }
         return back();
     }

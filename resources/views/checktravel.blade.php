@@ -117,7 +117,7 @@
                     </button>
                 </div>
 
-                <form action="{{ url("/check_update") }}" method="POST">
+                <form action="{{ url("/updateTravelStatus") }}" method="POST">
                     {{ csrf_field() }}
                     <p class="modal-body">
                         <label>編號<input type="text" class="form-control" name="id1" id="id1" readonly="readonly" ></label>
