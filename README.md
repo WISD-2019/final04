@@ -19,9 +19,9 @@
 - 頁面出差審核
 -- Route::get('checkTravel','checkTravelController@load_page');
 - 請假審核管理者身分驗證
--- Route::get('checkLeaveAuth', ['as' => 'LeaveAuth' , 'uses' => 'AuthController@authenticateLeave']);
+    - Route::get('checkLeaveAuth', ['as' => 'LeaveAuth' , 'uses' => 'AuthController@authenticateLeave']);
 - 出差審核管理者身分驗證
--- Route::get('checkTravelAuth', ['as' => 'TravelAuth' , 'uses' => 'AuthController@authenticateTravel']);
+    - Route::get('checkTravelAuth', ['as' => 'TravelAuth' , 'uses' => 'AuthController@authenticateTravel']);
 
 - 更新請假審核狀態Status
 - Route::post('updateLeaveStatus', "CheckLeaveController@updateLeaveStatus");
