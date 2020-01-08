@@ -14,9 +14,11 @@
                 <a class="nav-link" href="on_work">員工打卡</a>
             </li>
             @if (Auth::check())
-            <li class="nav-item">
-                <a class="nav-link" href="user">人員管理</a>
-            </li>
+                @if (Auth::user()->type==1)
+                <li class="nav-item">
+                    <a class="nav-link" href="user">人員管理</a>
+                </li>
+            @endif
             @endif
             @if (Auth::check())
             <li class="nav-item">
