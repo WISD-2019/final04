@@ -18,15 +18,17 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('checkTravel','CheckController@load_page_travel');
-    Route::get('check','CheckController@load_page_leave');
+    Route::get('checkTravel','checkTravelController@load_page');
+    Route::get('check','CheckController@load_page');
     });
 
 Route::get('LeaveAuth','AuthController@authenticateLeave');
 Route::get('TravelAuth','AuthController@authenticateTravel');
-Route::post('check_update_leave', "CheckController@update_leave");
-Route::post('check_update_travel', "CheckController@update_travel");
+Route::post('updateLeaveStatus', "CheckController@updateLeaveStatus");
+Route::post('updateTravelStatus', "checkTravelController@updateTravelStatus");
 
 
 

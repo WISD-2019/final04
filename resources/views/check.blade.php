@@ -85,7 +85,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ url("/check_update_leave") }}" method="POST">
+                    <form action="{{ url("/updateLeaveStatus") }}" method="POST">
                         {{ csrf_field() }}
                         <p class="modal-body">
                             <label>編號<input type="text" class="form-control" name="id" id="id" readonly="readonly" ></label>
@@ -99,7 +99,9 @@
                             <input type="text" class="form-control" name="reason" id="reason" readonly="readonly">
                             <label>證明</label>
                             <input type="text" class="form-control" name="prove" id="prove" readonly="readonly">
-                            <div style="text-align:right" >
+                            <img src=  id="prove" height=32 width=32 >
+
+                        <div style="text-align:right" >
                             <pre><input type="checkbox" name="update_status" value="1">核准         </pre><br></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>

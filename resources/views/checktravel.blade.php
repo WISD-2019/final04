@@ -82,7 +82,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ url("/check_update_travel") }}" method="POST">
+                <form action="{{ url("/updateTravelStatus") }}" method="POST">
                     {{ csrf_field() }}
                     <p class="modal-body">
                         <label>編號<input type="text" class="form-control" name="id" id="id" readonly="readonly" ></label>
