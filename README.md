@@ -65,6 +65,6 @@
 ## 系統使用帳號
 
 ## 系統開發人員
-[3A632062 賴俊霖](https://github.com/3A632062)
-[3A632083 王咨淇](https://github.com/3A632083)
-[3A632097 林品瑀](https://github.com/3A632097)
+- **[3A632062 賴俊霖](https://github.com/3A632062)**
+- **[3A632083 王咨淇](https://github.com/3A632083)**
+- **[3A632097 林品瑀](https://github.com/3A632097)**
