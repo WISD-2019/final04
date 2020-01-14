@@ -28,10 +28,10 @@
             @if (Auth::check())
                 @if (Auth::user()->type==1)
                     <li class="nav-item">
-                        <a class="nav-link" href="LeaveAuth">請假審核</a>
+                        <a class="nav-link" href="checkLeaveAuth">請假審核</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="TravelAuth">出差審核</a>
+                        <a class="nav-link" href="checkTravelAuth">出差審核</a>
                     </li>
                 @endif
             @endif
@@ -40,7 +40,7 @@
                 <a class="nav-link" href="attend">出勤紀錄</a>
             </li>
             @endif
-            
+
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">請假出差管理</a>
                 <div class="dropdown-menu">
