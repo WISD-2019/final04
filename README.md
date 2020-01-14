@@ -1,12 +1,22 @@
+## 首頁
 ![image](首頁.png)
+## 使用者登入畫面
 ![image](public/images/使用者登入.png)
+## 註冊頁面
 ![image](public/images/註冊頁面.png)
+## 請假申請頁面
 ![image](public/images/請假申請.png)
+## 請假申請審核頁面
 ![image](public/images/請假申請審核.png)
+## 出差申請頁面
 ![image](public/images/出差申請.png)
+## 出差申請審核頁面
 ![image](public/images/出差申請審核.png)
+## 員工打卡頁面
 ![image](public/images/員工打卡介面.png)
+## 人員管理頁面
 ![image](public/images/人員管理.png)
+## 出勤紀錄報表頁面
 ![image](public/images/出勤紀錄查詢.png)
 ## 系統的作用
 
@@ -37,18 +47,18 @@
     - Route::post('updateTravelStatus', "checkTravelController@updateTravelStatus");
 
 
-打卡頁面
-- Route::get('on_work', function () {return view('attendance');});
+- 打卡頁面 [3A632097 林品瑀](https://github.com/3A632097)
+    - Route::get('on_work', function () {return view('attendance');});
 - 打卡頁面傳送資料 [3A632097 林品瑀](https://github.com/3A632097)
     - Route::post('work','InsertController@work')->name('work');
 
--申請 [3A632062 賴俊霖](https://github.com/3A632062)
+- 申請出差及請假頁面 [3A632062 賴俊霖](https://github.com/3A632062)
     - Route::get('leave', function () { return view('leave'); });
     - Route::post('leave','LeaveTravelController@submit')->name('submit');
     - Route::get('record','LeaveTravelController@record')->name('record')
 
-報表 [3A632097 林品瑀](https://github.com/3A632097)
-- Route::get('attend','AttendanceController@attend')->name('attend');
+- 報表 [3A632097 林品瑀](https://github.com/3A632097)
+    - Route::get('attend','AttendanceController@attend')->name('attend');
 
 
 人員新增刪除修改
