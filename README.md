@@ -14,10 +14,13 @@
 ![image](public/images/出差申請審核.png)
 ## 員工打卡頁面
 ![image](public/images/員工打卡介面.png)
+## 出差請假紀錄查詢頁面
+![image](public/images/紀錄查詢.png)
 ## 人員管理頁面
 ![image](public/images/人員管理.png)
 ## 出勤紀錄報表頁面
 ![image](public/images/出勤紀錄查詢.png)
+
 ## 系統的作用
 
 人員管理、請假出差、審核請假及出差、出勤記錄報表
@@ -121,7 +124,7 @@ Source Path:https://github.com/WISD-2019/final04.git Destination Path:C:\wagon\u
     - 帳號：1@gmail.com
     - 密碼：123456
 - 前台使用者(type：0)
-    - 帳號：2@gmail.com
+    - 帳號：12@gmail.com
     - 密碼：123456
 ## 系統開發人員
 - **[3A632062 賴俊霖](https://github.com/3A632062)**
