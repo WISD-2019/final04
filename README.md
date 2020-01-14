@@ -71,6 +71,39 @@
 
 ## 系統復原步驟
 
+複製https://github.com/WISD-2019/final04.git本系統在GitHub的專案，打開 Source tree，點選 Clone 後，輸入以下資料
+
+Source Path:https://github.com/WISD-2019/final04.git Destination Path:C:\wagon\uwamp\www\final04 打開cmder，切換至專案所在資料夾，cd final04
+
+在cmder輸入以下命令，以復原此系統：
+
+1.composer install 
+2.composer run‐script post‐root‐package‐install 
+3.composer run‐script post‐create‐project‐cmd 將專案打開 在.env檔案內輸入資料庫主機IP、Port、名稱、與帳密如下：
+
+。DB_HOST=127.0.0.1
+
+。DB_PORT=33060
+
+。DB_DATABASE=final04
+
+。DB_USERNAME=root
+
+。DB_PASSWORD=root
+
+1.先進Adminer建立final04的資料庫
+2.建立好之後開啟cmder輸入以下指令： artisan migrate(成功執行後會復原所有資料表)
+3.artisan db:seed(建立假資料)
+
+。資料庫系統:MYSQL
+
+。伺服器:localhost:33060
+
+。帳號:root
+
+。密碼:root
+
+在UwAmp下，點選Apache config，選擇port 8000 ，並在Document Root 輸入{DOCUMENTPATH}/final04/public
 ## 系統使用帳號
 
 ## 系統開發人員
