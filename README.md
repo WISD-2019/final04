@@ -1,4 +1,13 @@
 ![image](首頁.png)
+![image](public/images/使用者登入.png)
+![image](public/images/註冊頁面.png)
+![image](public/images/請假申請.png)
+![image](public/images/請假申請審核.png)
+![image](public/images/出差申請.png)
+![image](public/images/出差申請審核.png)
+![image](public/images/員工打卡介面.png)
+![image](public/images/人員管理.png)
+![image](public/images/出勤記錄查詢.png)
 ## 系統的作用
 
 人員管理、請假出差、審核請假及出差、出勤記錄報表
