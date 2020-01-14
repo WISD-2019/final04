@@ -75,37 +75,44 @@
 
 Source Path:https://github.com/WISD-2019/final04.git Destination Path:C:\wagon\uwamp\www\final04 打開cmder，切換至專案所在資料夾，cd final04
 
-在cmder輸入以下命令，以復原此系統：
+- 在cmder輸入以下命令，以復原此系統：
+    - composer install 
+    - composer run‐script post‐root‐package‐install 
+    - composer run‐script post‐create‐project‐cmd 
+    
+- 將專案打開 在.env檔案內輸入資料庫主機IP、Port、名稱、與帳密如下：
 
-1.composer install 
-2.composer run‐script post‐root‐package‐install 
-3.composer run‐script post‐create‐project‐cmd 將專案打開 在.env檔案內輸入資料庫主機IP、Port、名稱、與帳密如下：
+    - DB_HOST=127.0.0.1
 
-。DB_HOST=127.0.0.1
+    - DB_PORT=33060
 
-。DB_PORT=33060
+    - DB_DATABASE=final04
 
-。DB_DATABASE=final04
+    - DB_USERNAME=root
 
-。DB_USERNAME=root
+    - DB_PASSWORD=root
+    
+- 復原完，建立資料庫
+    - 先進Adminer建立final04的資料庫
+    - 建立好之後開啟cmder輸入以下指令： artisan migrate(成功執行後會復原所有資料表)
+    - artisan db:seed(建立假資料)
+- 進入adminer
+   - 資料庫系統:MYSQL
 
-。DB_PASSWORD=root
+   - 伺服器:localhost:33060
 
-1.先進Adminer建立final04的資料庫
-2.建立好之後開啟cmder輸入以下指令： artisan migrate(成功執行後會復原所有資料表)
-3.artisan db:seed(建立假資料)
+   - 帳號:root
 
-。資料庫系統:MYSQL
-
-。伺服器:localhost:33060
-
-。帳號:root
-
-。密碼:root
+   - 密碼:root
 
 在UwAmp下，點選Apache config，選擇port 8000 ，並在Document Root 輸入{DOCUMENTPATH}/final04/public
 ## 系統使用帳號
-
+- 後台管理者(type：1)
+    - 帳號：1@gmail.com
+    - 密碼：123456
+- 前台使用者(type：0)
+    - 帳號：2@gmail.com
+    - 密碼：123456
 ## 系統開發人員
 - **[3A632062 賴俊霖](https://github.com/3A632062)**
 - **[3A632083 王咨淇](https://github.com/3A632083)**
